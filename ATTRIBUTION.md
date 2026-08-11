@@ -25,7 +25,7 @@ extraction method.
 
 | Institution | Program | Source URL | Accessed | Method |
 | --- | --- | --- | --- | --- |
-| _TBD_ | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| Oregon State University | Computer Science B.S. (2026-2027) | https://catalog.oregonstate.edu/college-departments/engineering/school-electrical-engineering-computer-science/computer-science-bs/ | 2026-08-10 | Hand-transcribed |
 
 ### Rules we follow when sourcing catalog data
 

@@ -115,10 +115,10 @@ access dates in [ATTRIBUTION.md](ATTRIBUTION.md).
 ## Build status
 
 - [x] **Phase 0** — Deployment skeleton, CP-SAT smoke test in `/health`
-- [ ] **Phase 1** — Supabase schema + real catalog seed + offline fixtures
-- [ ] **Phase 2** — NetworkX graph + CP-SAT feasibility (oracle tests)
-- [ ] **Phase 3** — Vertical slice: `/plan` + semester grid UI (first demoable build)
-- [ ] **Phase 4** — Disruption engine + minimum repair
+- [x] **Phase 1** — Supabase schema + real catalog seed + offline fixtures
+- [x] **Phase 2** — NetworkX graph + CP-SAT feasibility (oracle tests)
+- [x] **Phase 3** — Vertical slice: `/plan` + semester grid UI (first demoable build)
+- [x] **Phase 4** — Disruption engine + minimum repair
 - [ ] **Phase 5** — Ripple Score + fragility ranking
 - [ ] **Phase 6** — Disruption Simulator + repair animation
 - [ ] **Phase 7** — Submission package

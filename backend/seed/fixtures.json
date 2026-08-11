@@ -1,0 +1,3855 @@
+{
+  "courses": [
+    {
+      "course_id": "MTH 111Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Precalculus I: Functions",
+      "typical_capacity": 260
+    },
+    {
+      "course_id": "MTH 112Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Precalculus II: Trigonometry",
+      "typical_capacity": 240
+    },
+    {
+      "course_id": "MTH 231",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Elements of Discrete Mathematics",
+      "typical_capacity": 150
+    },
+    {
+      "course_id": "MTH 251Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Differential Calculus",
+      "typical_capacity": 300
+    },
+    {
+      "course_id": "MTH 252Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Integral Calculus",
+      "typical_capacity": 260
+    },
+    {
+      "course_id": "MTH 253Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Calculus: Sequences and Series",
+      "typical_capacity": 180
+    },
+    {
+      "course_id": "MTH 254",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Vector Calculus I",
+      "typical_capacity": 160
+    },
+    {
+      "course_id": "MTH 341",
+      "credits": 3,
+      "offered_terms": [
+        "FA",
+        "SP"
+      ],
+      "title": "Linear Algebra I",
+      "typical_capacity": 90
+    },
+    {
+      "course_id": "ST 314",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Introduction to Statistics for Engineers",
+      "typical_capacity": 200
+    },
+    {
+      "course_id": "WR 121Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Composition I",
+      "typical_capacity": 220
+    },
+    {
+      "course_id": "WR 227Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Technical Writing",
+      "typical_capacity": 180
+    },
+    {
+      "course_id": "COMM 111Z",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Public Speaking",
+      "typical_capacity": 200
+    },
+    {
+      "course_id": "PH 211",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI"
+      ],
+      "title": "General Physics with Calculus I",
+      "typical_capacity": 180
+    },
+    {
+      "course_id": "PH 212",
+      "credits": 4,
+      "offered_terms": [
+        "WI",
+        "SP"
+      ],
+      "title": "General Physics with Calculus II",
+      "typical_capacity": 170
+    },
+    {
+      "course_id": "ENGR 102",
+      "credits": 1,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Engineering Computation and Algorithmic Thinking",
+      "typical_capacity": 300
+    },
+    {
+      "course_id": "ENGR 103",
+      "credits": 3,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Engineering Computation and Algorithmic Thinking II",
+      "typical_capacity": 200
+    },
+    {
+      "course_id": "CS 161",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Introduction to Computer Science I",
+      "typical_capacity": 320
+    },
+    {
+      "course_id": "CS 162",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Introduction to Computer Science II",
+      "typical_capacity": 280
+    },
+    {
+      "course_id": "CS 225",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI"
+      ],
+      "title": "Discrete Structures in Computer Science",
+      "typical_capacity": 150
+    },
+    {
+      "course_id": "CS 261",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Data Structures",
+      "typical_capacity": 200
+    },
+    {
+      "course_id": "CS 271",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "SP"
+      ],
+      "title": "Computer Architecture and Assembly Language",
+      "typical_capacity": 160
+    },
+    {
+      "course_id": "CS 274",
+      "credits": 4,
+      "offered_terms": [
+        "WI",
+        "SP"
+      ],
+      "title": "Introduction to Systems Programming",
+      "typical_capacity": 150
+    },
+    {
+      "course_id": "CS 290",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Web Development",
+      "typical_capacity": 140
+    },
+    {
+      "course_id": "CS 321",
+      "credits": 3,
+      "offered_terms": [
+        "FA"
+      ],
+      "title": "Introduction to Theory of Computation",
+      "typical_capacity": 110
+    },
+    {
+      "course_id": "CS 325",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Analysis of Algorithms",
+      "typical_capacity": 170
+    },
+    {
+      "course_id": "CS 381",
+      "credits": 4,
+      "offered_terms": [
+        "WI",
+        "SP"
+      ],
+      "title": "Programming Language Fundamentals",
+      "typical_capacity": 120
+    },
+    {
+      "course_id": "CS 420",
+      "credits": 3,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Graph Theory with Applications to Computer Science",
+      "typical_capacity": 60
+    },
+    {
+      "course_id": "CS 480",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Translators",
+      "typical_capacity": 55
+    },
+    {
+      "course_id": "CS 374",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Operating Systems I",
+      "typical_capacity": 160
+    },
+    {
+      "course_id": "CS 370",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI"
+      ],
+      "title": "Introduction to Security",
+      "typical_capacity": 120
+    },
+    {
+      "course_id": "CS 372",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "SP"
+      ],
+      "title": "Introduction to Computer Networks",
+      "typical_capacity": 130
+    },
+    {
+      "course_id": "CS 373",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Defense Against the Dark Arts: Enterprise Defense",
+      "typical_capacity": 60
+    },
+    {
+      "course_id": "CS 427",
+      "credits": 4,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Cryptography",
+      "typical_capacity": 70
+    },
+    {
+      "course_id": "CS 473",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Introduction to Digital Forensics",
+      "typical_capacity": 60
+    },
+    {
+      "course_id": "CS 474",
+      "credits": 4,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Operating Systems II",
+      "typical_capacity": 80
+    },
+    {
+      "course_id": "CS 475",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Introduction to Parallel Programming",
+      "typical_capacity": 80
+    },
+    {
+      "course_id": "CS 476",
+      "credits": 4,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Advanced Computer Networking",
+      "typical_capacity": 60
+    },
+    {
+      "course_id": "CS 478",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Network Security",
+      "typical_capacity": 70
+    },
+    {
+      "course_id": "CS 331",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI"
+      ],
+      "title": "Introduction to Artificial Intelligence",
+      "typical_capacity": 140
+    },
+    {
+      "course_id": "CS 332",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "SP"
+      ],
+      "title": "Intro to Applied Data Science with Programming",
+      "typical_capacity": 120
+    },
+    {
+      "course_id": "CS 340",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Introduction to Databases",
+      "typical_capacity": 150
+    },
+    {
+      "course_id": "CS 432",
+      "credits": 4,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Introduction to Applied Machine Learning",
+      "typical_capacity": 100
+    },
+    {
+      "course_id": "CS 434",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "SP"
+      ],
+      "title": "Machine Learning and Data Mining",
+      "typical_capacity": 110
+    },
+    {
+      "course_id": "CS 435",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Applied Deep Learning",
+      "typical_capacity": 90
+    },
+    {
+      "course_id": "CS 440",
+      "credits": 4,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Database Management Systems",
+      "typical_capacity": 80
+    },
+    {
+      "course_id": "CS 352",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI"
+      ],
+      "title": "Introduction to Usability Engineering",
+      "typical_capacity": 130
+    },
+    {
+      "course_id": "CS 450",
+      "credits": 4,
+      "offered_terms": [
+        "FA"
+      ],
+      "title": "Introduction to Computer Graphics",
+      "typical_capacity": 90
+    },
+    {
+      "course_id": "CS 453",
+      "credits": 4,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Scientific Visualization",
+      "typical_capacity": 60
+    },
+    {
+      "course_id": "CS 457",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Computer Graphics Shaders",
+      "typical_capacity": 55
+    },
+    {
+      "course_id": "CS 458",
+      "credits": 4,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Introduction to Information Visualization",
+      "typical_capacity": 70
+    },
+    {
+      "course_id": "CS 468",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Inclusive Design (HCI)",
+      "typical_capacity": 70
+    },
+    {
+      "course_id": "CS 361",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Software Engineering I",
+      "typical_capacity": 170
+    },
+    {
+      "course_id": "CS 362",
+      "credits": 4,
+      "offered_terms": [
+        "WI",
+        "SP"
+      ],
+      "title": "Software Engineering II",
+      "typical_capacity": 160
+    },
+    {
+      "course_id": "CS 464",
+      "credits": 4,
+      "offered_terms": [
+        "FA"
+      ],
+      "title": "Open Source Software",
+      "typical_capacity": 80
+    },
+    {
+      "course_id": "CS 467",
+      "credits": 4,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP",
+        "SU"
+      ],
+      "title": "Online Capstone Project",
+      "typical_capacity": 120
+    },
+    {
+      "course_id": "CS 492",
+      "credits": 4,
+      "offered_terms": [
+        "FA"
+      ],
+      "title": "Mobile Software Development",
+      "typical_capacity": 90
+    },
+    {
+      "course_id": "CS 493",
+      "credits": 4,
+      "offered_terms": [
+        "WI",
+        "SP"
+      ],
+      "title": "Cloud Application Development",
+      "typical_capacity": 100
+    },
+    {
+      "course_id": "CS 494",
+      "credits": 4,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Advanced Web Development",
+      "typical_capacity": 80
+    },
+    {
+      "course_id": "CS 461",
+      "credits": 3,
+      "offered_terms": [
+        "FA"
+      ],
+      "title": "Senior Software Engineering Project I",
+      "typical_capacity": 130
+    },
+    {
+      "course_id": "CS 462",
+      "credits": 3,
+      "offered_terms": [
+        "WI"
+      ],
+      "title": "Senior Software Engineering Project II",
+      "typical_capacity": 130
+    },
+    {
+      "course_id": "CS 463",
+      "credits": 2,
+      "offered_terms": [
+        "SP"
+      ],
+      "title": "Senior Software Engineering Project III",
+      "typical_capacity": 130
+    },
+    {
+      "course_id": "CS 391",
+      "credits": 3,
+      "offered_terms": [
+        "FA",
+        "WI",
+        "SP"
+      ],
+      "title": "Social and Ethical Issues in Computer Science",
+      "typical_capacity": 200
+    }
+  ],
+  "degree_requirements": [
+    {
+      "eligible_courses": [
+        "CS 161",
+        "CS 162"
+      ],
+      "label": "Introductory programming sequence",
+      "min_credits": 8,
+      "n_of_m": 2,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_INTRO"
+    },
+    {
+      "eligible_courses": [
+        "CS 225",
+        "MTH 231"
+      ],
+      "label": "Discrete mathematics",
+      "min_credits": 4,
+      "n_of_m": 1,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_DISCRETE"
+    },
+    {
+      "eligible_courses": [
+        "CS 261"
+      ],
+      "label": "Data structures",
+      "min_credits": 4,
+      "n_of_m": 1,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_DATA"
+    },
+    {
+      "eligible_courses": [
+        "CS 271",
+        "CS 274",
+        "CS 374"
+      ],
+      "label": "Systems core",
+      "min_credits": 12,
+      "n_of_m": 3,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_SYSTEMS"
+    },
+    {
+      "eligible_courses": [
+        "CS 321",
+        "CS 325"
+      ],
+      "label": "Theory core",
+      "min_credits": 7,
+      "n_of_m": 2,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_THEORY"
+    },
+    {
+      "eligible_courses": [
+        "CS 361",
+        "CS 362"
+      ],
+      "label": "Software engineering core",
+      "min_credits": 8,
+      "n_of_m": 2,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_SE"
+    },
+    {
+      "eligible_courses": [
+        "CS 461",
+        "CS 462",
+        "CS 463"
+      ],
+      "label": "Senior capstone sequence",
+      "min_credits": 8,
+      "n_of_m": 3,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_CAPSTONE"
+    },
+    {
+      "eligible_courses": [
+        "CS 391"
+      ],
+      "label": "Ethics in computing",
+      "min_credits": 3,
+      "n_of_m": 1,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CORE_ETHICS"
+    },
+    {
+      "eligible_courses": [
+        "MTH 251Z",
+        "MTH 252Z"
+      ],
+      "label": "Calculus sequence",
+      "min_credits": 8,
+      "n_of_m": 2,
+      "program": "OSU-CS-BS",
+      "requirement_id": "MATH_CALC"
+    },
+    {
+      "eligible_courses": [
+        "MTH 253Z",
+        "MTH 254",
+        "MTH 341"
+      ],
+      "label": "Advanced mathematics",
+      "min_credits": 3,
+      "n_of_m": 1,
+      "program": "OSU-CS-BS",
+      "requirement_id": "MATH_UPPER"
+    },
+    {
+      "eligible_courses": [
+        "ST 314"
+      ],
+      "label": "Statistics",
+      "min_credits": 4,
+      "n_of_m": 1,
+      "program": "OSU-CS-BS",
+      "requirement_id": "STATS"
+    },
+    {
+      "eligible_courses": [
+        "WR 121Z",
+        "WR 227Z"
+      ],
+      "label": "Writing",
+      "min_credits": 8,
+      "n_of_m": 2,
+      "program": "OSU-CS-BS",
+      "requirement_id": "WRITING"
+    },
+    {
+      "eligible_courses": [
+        "COMM 111Z"
+      ],
+      "label": "Oral communication",
+      "min_credits": 4,
+      "n_of_m": 1,
+      "program": "OSU-CS-BS",
+      "requirement_id": "SPEAKING"
+    },
+    {
+      "eligible_courses": [
+        "PH 211",
+        "PH 212"
+      ],
+      "label": "Physical science sequence",
+      "min_credits": 8,
+      "n_of_m": 2,
+      "program": "OSU-CS-BS",
+      "requirement_id": "SCIENCE"
+    },
+    {
+      "eligible_courses": [
+        "ENGR 102"
+      ],
+      "label": "Engineering career preparation",
+      "min_credits": 1,
+      "n_of_m": 1,
+      "program": "OSU-CS-BS",
+      "requirement_id": "ENGR_CAREER"
+    },
+    {
+      "eligible_courses": [
+        "CS 290",
+        "CS 331",
+        "CS 332",
+        "CS 340",
+        "CS 352",
+        "CS 370",
+        "CS 372",
+        "CS 373",
+        "CS 381",
+        "CS 420",
+        "CS 427",
+        "CS 432",
+        "CS 434",
+        "CS 435",
+        "CS 440",
+        "CS 450",
+        "CS 453",
+        "CS 457",
+        "CS 458",
+        "CS 464",
+        "CS 467",
+        "CS 468",
+        "CS 473",
+        "CS 474",
+        "CS 475",
+        "CS 476",
+        "CS 478",
+        "CS 480",
+        "CS 492",
+        "CS 493",
+        "CS 494"
+      ],
+      "label": "Upper-division CS electives",
+      "min_credits": 16,
+      "n_of_m": 4,
+      "program": "OSU-CS-BS",
+      "requirement_id": "CS_ELECTIVES"
+    }
+  ],
+  "prerequisites": [
+    {
+      "course_id": "CS 161",
+      "group_id": "CS 161:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 112Z"
+    },
+    {
+      "course_id": "CS 162",
+      "group_id": "CS 162:g0",
+      "relation": "OR",
+      "requires_course_id": "CS 161"
+    },
+    {
+      "course_id": "CS 162",
+      "group_id": "CS 162:g0",
+      "relation": "OR",
+      "requires_course_id": "ENGR 103"
+    },
+    {
+      "course_id": "CS 225",
+      "group_id": "CS 225:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 111Z"
+    },
+    {
+      "course_id": "CS 261",
+      "group_id": "CS 261:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 162"
+    },
+    {
+      "course_id": "CS 261",
+      "group_id": "CS 261:g1",
+      "relation": "OR",
+      "requires_course_id": "CS 225"
+    },
+    {
+      "course_id": "CS 261",
+      "group_id": "CS 261:g1",
+      "relation": "OR",
+      "requires_course_id": "MTH 231"
+    },
+    {
+      "course_id": "CS 271",
+      "group_id": "CS 271:g0",
+      "relation": "OR",
+      "requires_course_id": "CS 161"
+    },
+    {
+      "course_id": "CS 271",
+      "group_id": "CS 271:g0",
+      "relation": "OR",
+      "requires_course_id": "ENGR 103"
+    },
+    {
+      "course_id": "CS 274",
+      "group_id": "CS 274:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 162"
+    },
+    {
+      "course_id": "CS 290",
+      "group_id": "CS 290:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 162"
+    },
+    {
+      "course_id": "CS 321",
+      "group_id": "CS 321:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 321",
+      "group_id": "CS 321:g1",
+      "relation": "OR",
+      "requires_course_id": "CS 225"
+    },
+    {
+      "course_id": "CS 321",
+      "group_id": "CS 321:g1",
+      "relation": "OR",
+      "requires_course_id": "MTH 231"
+    },
+    {
+      "course_id": "CS 325",
+      "group_id": "CS 325:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 325",
+      "group_id": "CS 325:g1",
+      "relation": "OR",
+      "requires_course_id": "CS 225"
+    },
+    {
+      "course_id": "CS 325",
+      "group_id": "CS 325:g1",
+      "relation": "OR",
+      "requires_course_id": "MTH 231"
+    },
+    {
+      "course_id": "CS 331",
+      "group_id": "CS 331:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 325"
+    },
+    {
+      "course_id": "CS 332",
+      "group_id": "CS 332:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 340",
+      "group_id": "CS 340:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 352",
+      "group_id": "CS 352:g0",
+      "relation": "OR",
+      "requires_course_id": "CS 161"
+    },
+    {
+      "course_id": "CS 352",
+      "group_id": "CS 352:g0",
+      "relation": "OR",
+      "requires_course_id": "ENGR 103"
+    },
+    {
+      "course_id": "CS 361",
+      "group_id": "CS 361:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 362",
+      "group_id": "CS 362:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 370",
+      "group_id": "CS 370:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 374"
+    },
+    {
+      "course_id": "CS 372",
+      "group_id": "CS 372:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 372",
+      "group_id": "CS 372:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 271"
+    },
+    {
+      "course_id": "CS 373",
+      "group_id": "CS 373:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 370"
+    },
+    {
+      "course_id": "CS 374",
+      "group_id": "CS 374:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 374",
+      "group_id": "CS 374:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 274"
+    },
+    {
+      "course_id": "CS 374",
+      "group_id": "CS 374:g2",
+      "relation": "AND",
+      "requires_course_id": "CS 271"
+    },
+    {
+      "course_id": "CS 381",
+      "group_id": "CS 381:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 381",
+      "group_id": "CS 381:g1",
+      "relation": "OR",
+      "requires_course_id": "CS 225"
+    },
+    {
+      "course_id": "CS 381",
+      "group_id": "CS 381:g1",
+      "relation": "OR",
+      "requires_course_id": "MTH 231"
+    },
+    {
+      "course_id": "CS 420",
+      "group_id": "CS 420:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 325"
+    },
+    {
+      "course_id": "CS 427",
+      "group_id": "CS 427:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 432",
+      "group_id": "CS 432:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 332"
+    },
+    {
+      "course_id": "CS 434",
+      "group_id": "CS 434:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 325"
+    },
+    {
+      "course_id": "CS 434",
+      "group_id": "CS 434:g1",
+      "relation": "AND",
+      "requires_course_id": "ST 314"
+    },
+    {
+      "course_id": "CS 435",
+      "group_id": "CS 435:g0",
+      "relation": "OR",
+      "requires_course_id": "CS 432"
+    },
+    {
+      "course_id": "CS 435",
+      "group_id": "CS 435:g0",
+      "relation": "OR",
+      "requires_course_id": "CS 434"
+    },
+    {
+      "course_id": "CS 440",
+      "group_id": "CS 440:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 440",
+      "group_id": "CS 440:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 340"
+    },
+    {
+      "course_id": "CS 450",
+      "group_id": "CS 450:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 453",
+      "group_id": "CS 453:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 457",
+      "group_id": "CS 457:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 458",
+      "group_id": "CS 458:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 361"
+    },
+    {
+      "course_id": "CS 461",
+      "group_id": "CS 461:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 325"
+    },
+    {
+      "course_id": "CS 461",
+      "group_id": "CS 461:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 361"
+    },
+    {
+      "course_id": "CS 461",
+      "group_id": "CS 461:g2",
+      "relation": "AND",
+      "requires_course_id": "CS 362"
+    },
+    {
+      "course_id": "CS 462",
+      "group_id": "CS 462:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 362"
+    },
+    {
+      "course_id": "CS 462",
+      "group_id": "CS 462:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 461"
+    },
+    {
+      "course_id": "CS 463",
+      "group_id": "CS 463:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 462"
+    },
+    {
+      "course_id": "CS 463",
+      "group_id": "CS 463:g1",
+      "relation": "AND",
+      "requires_course_id": "ENGR 102"
+    },
+    {
+      "course_id": "CS 464",
+      "group_id": "CS 464:g0",
+      "relation": "OR",
+      "requires_course_id": "CS 361"
+    },
+    {
+      "course_id": "CS 464",
+      "group_id": "CS 464:g0",
+      "relation": "OR",
+      "requires_course_id": "CS 362"
+    },
+    {
+      "course_id": "CS 467",
+      "group_id": "CS 467:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 361"
+    },
+    {
+      "course_id": "CS 467",
+      "group_id": "CS 467:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 362"
+    },
+    {
+      "course_id": "CS 467",
+      "group_id": "CS 467:g2",
+      "relation": "AND",
+      "requires_course_id": "CS 374"
+    },
+    {
+      "course_id": "CS 468",
+      "group_id": "CS 468:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 352"
+    },
+    {
+      "course_id": "CS 473",
+      "group_id": "CS 473:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 374"
+    },
+    {
+      "course_id": "CS 473",
+      "group_id": "CS 473:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 370"
+    },
+    {
+      "course_id": "CS 474",
+      "group_id": "CS 474:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 374"
+    },
+    {
+      "course_id": "CS 474",
+      "group_id": "CS 474:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 271"
+    },
+    {
+      "course_id": "CS 475",
+      "group_id": "CS 475:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 261"
+    },
+    {
+      "course_id": "CS 476",
+      "group_id": "CS 476:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 372"
+    },
+    {
+      "course_id": "CS 476",
+      "group_id": "CS 476:g1",
+      "relation": "AND",
+      "requires_course_id": "ST 314"
+    },
+    {
+      "course_id": "CS 478",
+      "group_id": "CS 478:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 372"
+    },
+    {
+      "course_id": "CS 480",
+      "group_id": "CS 480:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 381"
+    },
+    {
+      "course_id": "CS 480",
+      "group_id": "CS 480:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 321"
+    },
+    {
+      "course_id": "CS 480",
+      "group_id": "CS 480:g2",
+      "relation": "AND",
+      "requires_course_id": "CS 374"
+    },
+    {
+      "course_id": "CS 492",
+      "group_id": "CS 492:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 374"
+    },
+    {
+      "course_id": "CS 493",
+      "group_id": "CS 493:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 290"
+    },
+    {
+      "course_id": "CS 493",
+      "group_id": "CS 493:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 340"
+    },
+    {
+      "course_id": "CS 493",
+      "group_id": "CS 493:g2",
+      "relation": "AND",
+      "requires_course_id": "CS 372"
+    },
+    {
+      "course_id": "CS 494",
+      "group_id": "CS 494:g0",
+      "relation": "AND",
+      "requires_course_id": "CS 290"
+    },
+    {
+      "course_id": "CS 494",
+      "group_id": "CS 494:g1",
+      "relation": "AND",
+      "requires_course_id": "CS 340"
+    },
+    {
+      "course_id": "ENGR 103",
+      "group_id": "ENGR 103:g0",
+      "relation": "AND",
+      "requires_course_id": "ENGR 102"
+    },
+    {
+      "course_id": "MTH 112Z",
+      "group_id": "MTH 112Z:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 111Z"
+    },
+    {
+      "course_id": "MTH 231",
+      "group_id": "MTH 231:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 111Z"
+    },
+    {
+      "course_id": "MTH 251Z",
+      "group_id": "MTH 251Z:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 112Z"
+    },
+    {
+      "course_id": "MTH 252Z",
+      "group_id": "MTH 252Z:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 251Z"
+    },
+    {
+      "course_id": "MTH 253Z",
+      "group_id": "MTH 253Z:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 252Z"
+    },
+    {
+      "course_id": "MTH 254",
+      "group_id": "MTH 254:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 252Z"
+    },
+    {
+      "course_id": "MTH 341",
+      "group_id": "MTH 341:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 254"
+    },
+    {
+      "course_id": "PH 211",
+      "group_id": "PH 211:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 251Z"
+    },
+    {
+      "course_id": "PH 212",
+      "group_id": "PH 212:g0",
+      "relation": "AND",
+      "requires_course_id": "PH 211"
+    },
+    {
+      "course_id": "PH 212",
+      "group_id": "PH 212:g1",
+      "relation": "AND",
+      "requires_course_id": "MTH 252Z"
+    },
+    {
+      "course_id": "ST 314",
+      "group_id": "ST 314:g0",
+      "relation": "AND",
+      "requires_course_id": "MTH 251Z"
+    },
+    {
+      "course_id": "WR 227Z",
+      "group_id": "WR 227Z:g0",
+      "relation": "AND",
+      "requires_course_id": "WR 121Z"
+    }
+  ],
+  "programs": [
+    {
+      "accessed": "2026-08-10",
+      "catalog_year": "2026-2027",
+      "institution": "Oregon State University",
+      "label": "Computer Science, B.S.",
+      "program": "OSU-CS-BS",
+      "source_url": "https://catalog.oregonstate.edu/courses/cs/",
+      "total_min_credits": 106
+    }
+  ],
+  "registration_state": [
+    {
+      "available_seats": 59,
+      "course_id": "COMM 111Z",
+      "term": "2026FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 63,
+      "course_id": "COMM 111Z",
+      "term": "2026WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 64,
+      "course_id": "COMM 111Z",
+      "term": "2026SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 45,
+      "course_id": "COMM 111Z",
+      "term": "2026SU",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 54,
+      "course_id": "COMM 111Z",
+      "term": "2027FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 48,
+      "course_id": "COMM 111Z",
+      "term": "2027WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 64,
+      "course_id": "COMM 111Z",
+      "term": "2027SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 45,
+      "course_id": "COMM 111Z",
+      "term": "2027SU",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 51,
+      "course_id": "COMM 111Z",
+      "term": "2028FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 51,
+      "course_id": "COMM 111Z",
+      "term": "2028WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 59,
+      "course_id": "COMM 111Z",
+      "term": "2028SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 42,
+      "course_id": "COMM 111Z",
+      "term": "2028SU",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 81,
+      "course_id": "CS 161",
+      "term": "2026FA",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 90,
+      "course_id": "CS 161",
+      "term": "2026WI",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 95,
+      "course_id": "CS 161",
+      "term": "2026SP",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 63,
+      "course_id": "CS 161",
+      "term": "2026SU",
+      "total_seats": 128
+    },
+    {
+      "available_seats": 96,
+      "course_id": "CS 161",
+      "term": "2027FA",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 95,
+      "course_id": "CS 161",
+      "term": "2027WI",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 89,
+      "course_id": "CS 161",
+      "term": "2027SP",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 68,
+      "course_id": "CS 161",
+      "term": "2027SU",
+      "total_seats": 128
+    },
+    {
+      "available_seats": 83,
+      "course_id": "CS 161",
+      "term": "2028FA",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 78,
+      "course_id": "CS 161",
+      "term": "2028WI",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 97,
+      "course_id": "CS 161",
+      "term": "2028SP",
+      "total_seats": 320
+    },
+    {
+      "available_seats": 70,
+      "course_id": "CS 161",
+      "term": "2028SU",
+      "total_seats": 128
+    },
+    {
+      "available_seats": 72,
+      "course_id": "CS 162",
+      "term": "2026FA",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 70,
+      "course_id": "CS 162",
+      "term": "2026WI",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 82,
+      "course_id": "CS 162",
+      "term": "2026SP",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 57,
+      "course_id": "CS 162",
+      "term": "2026SU",
+      "total_seats": 112
+    },
+    {
+      "available_seats": 68,
+      "course_id": "CS 162",
+      "term": "2027FA",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 89,
+      "course_id": "CS 162",
+      "term": "2027WI",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 87,
+      "course_id": "CS 162",
+      "term": "2027SP",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 55,
+      "course_id": "CS 162",
+      "term": "2027SU",
+      "total_seats": 112
+    },
+    {
+      "available_seats": 81,
+      "course_id": "CS 162",
+      "term": "2028FA",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 77,
+      "course_id": "CS 162",
+      "term": "2028WI",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 88,
+      "course_id": "CS 162",
+      "term": "2028SP",
+      "total_seats": 280
+    },
+    {
+      "available_seats": 58,
+      "course_id": "CS 162",
+      "term": "2028SU",
+      "total_seats": 112
+    },
+    {
+      "available_seats": 5,
+      "course_id": "CS 225",
+      "term": "2026FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 13,
+      "course_id": "CS 225",
+      "term": "2026WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 13,
+      "course_id": "CS 225",
+      "term": "2027FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 11,
+      "course_id": "CS 225",
+      "term": "2027WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 16,
+      "course_id": "CS 225",
+      "term": "2028FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 11,
+      "course_id": "CS 225",
+      "term": "2028WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 8,
+      "course_id": "CS 261",
+      "term": "2026FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 5,
+      "course_id": "CS 261",
+      "term": "2026WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 11,
+      "course_id": "CS 261",
+      "term": "2026SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 12,
+      "course_id": "CS 261",
+      "term": "2027FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 12,
+      "course_id": "CS 261",
+      "term": "2027WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 13,
+      "course_id": "CS 261",
+      "term": "2027SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 4,
+      "course_id": "CS 261",
+      "term": "2028FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 10,
+      "course_id": "CS 261",
+      "term": "2028WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 9,
+      "course_id": "CS 261",
+      "term": "2028SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 25,
+      "course_id": "CS 271",
+      "term": "2026FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 271",
+      "term": "2026SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 271",
+      "term": "2027FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 271",
+      "term": "2027SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 271",
+      "term": "2028FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 23,
+      "course_id": "CS 271",
+      "term": "2028SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 16,
+      "course_id": "CS 274",
+      "term": "2026WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 274",
+      "term": "2026SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 22,
+      "course_id": "CS 274",
+      "term": "2027WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 274",
+      "term": "2027SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 15,
+      "course_id": "CS 274",
+      "term": "2028WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 274",
+      "term": "2028SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 43,
+      "course_id": "CS 290",
+      "term": "2026FA",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 36,
+      "course_id": "CS 290",
+      "term": "2026WI",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 290",
+      "term": "2026SP",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 35,
+      "course_id": "CS 290",
+      "term": "2027FA",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 290",
+      "term": "2027WI",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 290",
+      "term": "2027SP",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 41,
+      "course_id": "CS 290",
+      "term": "2028FA",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 290",
+      "term": "2028WI",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 43,
+      "course_id": "CS 290",
+      "term": "2028SP",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 2,
+      "course_id": "CS 321",
+      "term": "2026FA",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 10,
+      "course_id": "CS 321",
+      "term": "2027FA",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 9,
+      "course_id": "CS 321",
+      "term": "2028FA",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 325",
+      "term": "2026FA",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 325",
+      "term": "2026WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 325",
+      "term": "2026SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 29,
+      "course_id": "CS 325",
+      "term": "2027FA",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 325",
+      "term": "2027WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 30,
+      "course_id": "CS 325",
+      "term": "2027SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 325",
+      "term": "2028FA",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 29,
+      "course_id": "CS 325",
+      "term": "2028WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 325",
+      "term": "2028SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 35,
+      "course_id": "CS 331",
+      "term": "2026FA",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 331",
+      "term": "2026WI",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 331",
+      "term": "2027FA",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 331",
+      "term": "2027WI",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 42,
+      "course_id": "CS 331",
+      "term": "2028FA",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 34,
+      "course_id": "CS 331",
+      "term": "2028WI",
+      "total_seats": 140
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 332",
+      "term": "2026FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 36,
+      "course_id": "CS 332",
+      "term": "2026SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 38,
+      "course_id": "CS 332",
+      "term": "2027FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 34,
+      "course_id": "CS 332",
+      "term": "2027SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 36,
+      "course_id": "CS 332",
+      "term": "2028FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 332",
+      "term": "2028SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 48,
+      "course_id": "CS 340",
+      "term": "2026FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 43,
+      "course_id": "CS 340",
+      "term": "2026WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 41,
+      "course_id": "CS 340",
+      "term": "2026SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 47,
+      "course_id": "CS 340",
+      "term": "2027FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 340",
+      "term": "2027WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 43,
+      "course_id": "CS 340",
+      "term": "2027SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 45,
+      "course_id": "CS 340",
+      "term": "2028FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 45,
+      "course_id": "CS 340",
+      "term": "2028WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 340",
+      "term": "2028SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 352",
+      "term": "2026FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 33,
+      "course_id": "CS 352",
+      "term": "2026WI",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 34,
+      "course_id": "CS 352",
+      "term": "2027FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 40,
+      "course_id": "CS 352",
+      "term": "2027WI",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 38,
+      "course_id": "CS 352",
+      "term": "2028FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 352",
+      "term": "2028WI",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 29,
+      "course_id": "CS 361",
+      "term": "2026FA",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 361",
+      "term": "2026WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 361",
+      "term": "2026SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 361",
+      "term": "2027FA",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 361",
+      "term": "2027WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 32,
+      "course_id": "CS 361",
+      "term": "2027SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 29,
+      "course_id": "CS 361",
+      "term": "2028FA",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 361",
+      "term": "2028WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 361",
+      "term": "2028SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 27,
+      "course_id": "CS 362",
+      "term": "2026WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 27,
+      "course_id": "CS 362",
+      "term": "2026SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 23,
+      "course_id": "CS 362",
+      "term": "2027WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 22,
+      "course_id": "CS 362",
+      "term": "2027SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 362",
+      "term": "2028WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 362",
+      "term": "2028SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 35,
+      "course_id": "CS 370",
+      "term": "2026FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 33,
+      "course_id": "CS 370",
+      "term": "2026WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 33,
+      "course_id": "CS 370",
+      "term": "2027FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 370",
+      "term": "2027WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 32,
+      "course_id": "CS 370",
+      "term": "2028FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 370",
+      "term": "2028WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 22,
+      "course_id": "CS 372",
+      "term": "2026FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 372",
+      "term": "2026SP",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 21,
+      "course_id": "CS 372",
+      "term": "2027FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 372",
+      "term": "2027SP",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 372",
+      "term": "2028FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 372",
+      "term": "2028SP",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 16,
+      "course_id": "CS 373",
+      "term": "2026SP",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 373",
+      "term": "2027SP",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 16,
+      "course_id": "CS 373",
+      "term": "2028SP",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 11,
+      "course_id": "CS 374",
+      "term": "2026FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 15,
+      "course_id": "CS 374",
+      "term": "2026WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 374",
+      "term": "2026SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 10,
+      "course_id": "CS 374",
+      "term": "2027FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 10,
+      "course_id": "CS 374",
+      "term": "2027WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 13,
+      "course_id": "CS 374",
+      "term": "2027SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 12,
+      "course_id": "CS 374",
+      "term": "2028FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 11,
+      "course_id": "CS 374",
+      "term": "2028WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 15,
+      "course_id": "CS 374",
+      "term": "2028SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 32,
+      "course_id": "CS 381",
+      "term": "2026WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 33,
+      "course_id": "CS 381",
+      "term": "2026SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 32,
+      "course_id": "CS 381",
+      "term": "2027WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 34,
+      "course_id": "CS 381",
+      "term": "2027SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 33,
+      "course_id": "CS 381",
+      "term": "2028WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 36,
+      "course_id": "CS 381",
+      "term": "2028SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 51,
+      "course_id": "CS 391",
+      "term": "2026FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 57,
+      "course_id": "CS 391",
+      "term": "2026WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 49,
+      "course_id": "CS 391",
+      "term": "2026SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 61,
+      "course_id": "CS 391",
+      "term": "2027FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 61,
+      "course_id": "CS 391",
+      "term": "2027WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 51,
+      "course_id": "CS 391",
+      "term": "2027SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 59,
+      "course_id": "CS 391",
+      "term": "2028FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 61,
+      "course_id": "CS 391",
+      "term": "2028WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 63,
+      "course_id": "CS 391",
+      "term": "2028SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 420",
+      "term": "2026WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 420",
+      "term": "2027WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 15,
+      "course_id": "CS 420",
+      "term": "2028WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 427",
+      "term": "2026WI",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 427",
+      "term": "2027WI",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 427",
+      "term": "2028WI",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 29,
+      "course_id": "CS 432",
+      "term": "2026WI",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 432",
+      "term": "2027WI",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 432",
+      "term": "2028WI",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 32,
+      "course_id": "CS 434",
+      "term": "2026FA",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 30,
+      "course_id": "CS 434",
+      "term": "2026SP",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 32,
+      "course_id": "CS 434",
+      "term": "2027FA",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 434",
+      "term": "2027SP",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 27,
+      "course_id": "CS 434",
+      "term": "2028FA",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 33,
+      "course_id": "CS 434",
+      "term": "2028SP",
+      "total_seats": 110
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 435",
+      "term": "2026SP",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 435",
+      "term": "2027SP",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 27,
+      "course_id": "CS 435",
+      "term": "2028SP",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 440",
+      "term": "2026WI",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 440",
+      "term": "2027WI",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 22,
+      "course_id": "CS 440",
+      "term": "2028WI",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 450",
+      "term": "2026FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 450",
+      "term": "2027FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 23,
+      "course_id": "CS 450",
+      "term": "2028FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 16,
+      "course_id": "CS 453",
+      "term": "2026WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 453",
+      "term": "2027WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 15,
+      "course_id": "CS 453",
+      "term": "2028WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 457",
+      "term": "2026SP",
+      "total_seats": 55
+    },
+    {
+      "available_seats": 15,
+      "course_id": "CS 457",
+      "term": "2027SP",
+      "total_seats": 55
+    },
+    {
+      "available_seats": 16,
+      "course_id": "CS 457",
+      "term": "2028SP",
+      "total_seats": 55
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 458",
+      "term": "2026WI",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 458",
+      "term": "2027WI",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 458",
+      "term": "2028WI",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 8,
+      "course_id": "CS 461",
+      "term": "2026FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 8,
+      "course_id": "CS 461",
+      "term": "2027FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 11,
+      "course_id": "CS 461",
+      "term": "2028FA",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 462",
+      "term": "2026WI",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 11,
+      "course_id": "CS 462",
+      "term": "2027WI",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 462",
+      "term": "2028WI",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 463",
+      "term": "2026SP",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 463",
+      "term": "2027SP",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 463",
+      "term": "2028SP",
+      "total_seats": 130
+    },
+    {
+      "available_seats": 21,
+      "course_id": "CS 464",
+      "term": "2026FA",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 464",
+      "term": "2027FA",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 21,
+      "course_id": "CS 464",
+      "term": "2028FA",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 35,
+      "course_id": "CS 467",
+      "term": "2026FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 467",
+      "term": "2026WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 34,
+      "course_id": "CS 467",
+      "term": "2026SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 467",
+      "term": "2026SU",
+      "total_seats": 48
+    },
+    {
+      "available_seats": 35,
+      "course_id": "CS 467",
+      "term": "2027FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 29,
+      "course_id": "CS 467",
+      "term": "2027WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 467",
+      "term": "2027SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 25,
+      "course_id": "CS 467",
+      "term": "2027SU",
+      "total_seats": 48
+    },
+    {
+      "available_seats": 36,
+      "course_id": "CS 467",
+      "term": "2028FA",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 37,
+      "course_id": "CS 467",
+      "term": "2028WI",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 30,
+      "course_id": "CS 467",
+      "term": "2028SP",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 467",
+      "term": "2028SU",
+      "total_seats": 48
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 468",
+      "term": "2026SP",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 468",
+      "term": "2027SP",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 468",
+      "term": "2028SP",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 18,
+      "course_id": "CS 473",
+      "term": "2026SP",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 16,
+      "course_id": "CS 473",
+      "term": "2027SP",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 14,
+      "course_id": "CS 473",
+      "term": "2028SP",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 21,
+      "course_id": "CS 474",
+      "term": "2026WI",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 25,
+      "course_id": "CS 474",
+      "term": "2027WI",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 22,
+      "course_id": "CS 474",
+      "term": "2028WI",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 25,
+      "course_id": "CS 475",
+      "term": "2026SP",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 21,
+      "course_id": "CS 475",
+      "term": "2027SP",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 22,
+      "course_id": "CS 475",
+      "term": "2028SP",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 476",
+      "term": "2026WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 476",
+      "term": "2027WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 476",
+      "term": "2028WI",
+      "total_seats": 60
+    },
+    {
+      "available_seats": 22,
+      "course_id": "CS 478",
+      "term": "2026SP",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 21,
+      "course_id": "CS 478",
+      "term": "2027SP",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 21,
+      "course_id": "CS 478",
+      "term": "2028SP",
+      "total_seats": 70
+    },
+    {
+      "available_seats": 15,
+      "course_id": "CS 480",
+      "term": "2026SP",
+      "total_seats": 55
+    },
+    {
+      "available_seats": 13,
+      "course_id": "CS 480",
+      "term": "2027SP",
+      "total_seats": 55
+    },
+    {
+      "available_seats": 17,
+      "course_id": "CS 480",
+      "term": "2028SP",
+      "total_seats": 55
+    },
+    {
+      "available_seats": 28,
+      "course_id": "CS 492",
+      "term": "2026FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 492",
+      "term": "2027FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 492",
+      "term": "2028FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 27,
+      "course_id": "CS 493",
+      "term": "2026WI",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 29,
+      "course_id": "CS 493",
+      "term": "2026SP",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 27,
+      "course_id": "CS 493",
+      "term": "2027WI",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 31,
+      "course_id": "CS 493",
+      "term": "2027SP",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 26,
+      "course_id": "CS 493",
+      "term": "2028WI",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 25,
+      "course_id": "CS 493",
+      "term": "2028SP",
+      "total_seats": 100
+    },
+    {
+      "available_seats": 24,
+      "course_id": "CS 494",
+      "term": "2026SP",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 19,
+      "course_id": "CS 494",
+      "term": "2027SP",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 20,
+      "course_id": "CS 494",
+      "term": "2028SP",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 78,
+      "course_id": "ENGR 102",
+      "term": "2026FA",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 83,
+      "course_id": "ENGR 102",
+      "term": "2026WI",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 74,
+      "course_id": "ENGR 102",
+      "term": "2026SP",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 84,
+      "course_id": "ENGR 102",
+      "term": "2027FA",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 77,
+      "course_id": "ENGR 102",
+      "term": "2027WI",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 81,
+      "course_id": "ENGR 102",
+      "term": "2027SP",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 87,
+      "course_id": "ENGR 102",
+      "term": "2028FA",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 88,
+      "course_id": "ENGR 102",
+      "term": "2028WI",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 77,
+      "course_id": "ENGR 102",
+      "term": "2028SP",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 52,
+      "course_id": "ENGR 103",
+      "term": "2026FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 60,
+      "course_id": "ENGR 103",
+      "term": "2026WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 61,
+      "course_id": "ENGR 103",
+      "term": "2026SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 56,
+      "course_id": "ENGR 103",
+      "term": "2027FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 54,
+      "course_id": "ENGR 103",
+      "term": "2027WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 64,
+      "course_id": "ENGR 103",
+      "term": "2027SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 55,
+      "course_id": "ENGR 103",
+      "term": "2028FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 60,
+      "course_id": "ENGR 103",
+      "term": "2028WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 57,
+      "course_id": "ENGR 103",
+      "term": "2028SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 80,
+      "course_id": "MTH 111Z",
+      "term": "2026FA",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 70,
+      "course_id": "MTH 111Z",
+      "term": "2026WI",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 82,
+      "course_id": "MTH 111Z",
+      "term": "2026SP",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 58,
+      "course_id": "MTH 111Z",
+      "term": "2026SU",
+      "total_seats": 104
+    },
+    {
+      "available_seats": 69,
+      "course_id": "MTH 111Z",
+      "term": "2027FA",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 70,
+      "course_id": "MTH 111Z",
+      "term": "2027WI",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 66,
+      "course_id": "MTH 111Z",
+      "term": "2027SP",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 59,
+      "course_id": "MTH 111Z",
+      "term": "2027SU",
+      "total_seats": 104
+    },
+    {
+      "available_seats": 79,
+      "course_id": "MTH 111Z",
+      "term": "2028FA",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 82,
+      "course_id": "MTH 111Z",
+      "term": "2028WI",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 75,
+      "course_id": "MTH 111Z",
+      "term": "2028SP",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 51,
+      "course_id": "MTH 111Z",
+      "term": "2028SU",
+      "total_seats": 104
+    },
+    {
+      "available_seats": 67,
+      "course_id": "MTH 112Z",
+      "term": "2026FA",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 74,
+      "course_id": "MTH 112Z",
+      "term": "2026WI",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 62,
+      "course_id": "MTH 112Z",
+      "term": "2026SP",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 50,
+      "course_id": "MTH 112Z",
+      "term": "2026SU",
+      "total_seats": 96
+    },
+    {
+      "available_seats": 62,
+      "course_id": "MTH 112Z",
+      "term": "2027FA",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 75,
+      "course_id": "MTH 112Z",
+      "term": "2027WI",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 69,
+      "course_id": "MTH 112Z",
+      "term": "2027SP",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 48,
+      "course_id": "MTH 112Z",
+      "term": "2027SU",
+      "total_seats": 96
+    },
+    {
+      "available_seats": 68,
+      "course_id": "MTH 112Z",
+      "term": "2028FA",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 71,
+      "course_id": "MTH 112Z",
+      "term": "2028WI",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 65,
+      "course_id": "MTH 112Z",
+      "term": "2028SP",
+      "total_seats": 240
+    },
+    {
+      "available_seats": 52,
+      "course_id": "MTH 112Z",
+      "term": "2028SU",
+      "total_seats": 96
+    },
+    {
+      "available_seats": 41,
+      "course_id": "MTH 231",
+      "term": "2026FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 41,
+      "course_id": "MTH 231",
+      "term": "2026WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 44,
+      "course_id": "MTH 231",
+      "term": "2026SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 44,
+      "course_id": "MTH 231",
+      "term": "2027FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 44,
+      "course_id": "MTH 231",
+      "term": "2027WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 39,
+      "course_id": "MTH 231",
+      "term": "2027SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 47,
+      "course_id": "MTH 231",
+      "term": "2028FA",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 38,
+      "course_id": "MTH 231",
+      "term": "2028WI",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 48,
+      "course_id": "MTH 231",
+      "term": "2028SP",
+      "total_seats": 150
+    },
+    {
+      "available_seats": 78,
+      "course_id": "MTH 251Z",
+      "term": "2026FA",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 83,
+      "course_id": "MTH 251Z",
+      "term": "2026WI",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 87,
+      "course_id": "MTH 251Z",
+      "term": "2026SP",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 60,
+      "course_id": "MTH 251Z",
+      "term": "2026SU",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 94,
+      "course_id": "MTH 251Z",
+      "term": "2027FA",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 74,
+      "course_id": "MTH 251Z",
+      "term": "2027WI",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 75,
+      "course_id": "MTH 251Z",
+      "term": "2027SP",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 63,
+      "course_id": "MTH 251Z",
+      "term": "2027SU",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 81,
+      "course_id": "MTH 251Z",
+      "term": "2028FA",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 73,
+      "course_id": "MTH 251Z",
+      "term": "2028WI",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 79,
+      "course_id": "MTH 251Z",
+      "term": "2028SP",
+      "total_seats": 300
+    },
+    {
+      "available_seats": 66,
+      "course_id": "MTH 251Z",
+      "term": "2028SU",
+      "total_seats": 120
+    },
+    {
+      "available_seats": 78,
+      "course_id": "MTH 252Z",
+      "term": "2026FA",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 78,
+      "course_id": "MTH 252Z",
+      "term": "2026WI",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 72,
+      "course_id": "MTH 252Z",
+      "term": "2026SP",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 58,
+      "course_id": "MTH 252Z",
+      "term": "2026SU",
+      "total_seats": 104
+    },
+    {
+      "available_seats": 83,
+      "course_id": "MTH 252Z",
+      "term": "2027FA",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 79,
+      "course_id": "MTH 252Z",
+      "term": "2027WI",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 78,
+      "course_id": "MTH 252Z",
+      "term": "2027SP",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 59,
+      "course_id": "MTH 252Z",
+      "term": "2027SU",
+      "total_seats": 104
+    },
+    {
+      "available_seats": 63,
+      "course_id": "MTH 252Z",
+      "term": "2028FA",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 76,
+      "course_id": "MTH 252Z",
+      "term": "2028WI",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 77,
+      "course_id": "MTH 252Z",
+      "term": "2028SP",
+      "total_seats": 260
+    },
+    {
+      "available_seats": 59,
+      "course_id": "MTH 252Z",
+      "term": "2028SU",
+      "total_seats": 104
+    },
+    {
+      "available_seats": 43,
+      "course_id": "MTH 253Z",
+      "term": "2026FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 57,
+      "course_id": "MTH 253Z",
+      "term": "2026WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 47,
+      "course_id": "MTH 253Z",
+      "term": "2026SP",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 51,
+      "course_id": "MTH 253Z",
+      "term": "2027FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 56,
+      "course_id": "MTH 253Z",
+      "term": "2027WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 51,
+      "course_id": "MTH 253Z",
+      "term": "2027SP",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 51,
+      "course_id": "MTH 253Z",
+      "term": "2028FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 46,
+      "course_id": "MTH 253Z",
+      "term": "2028WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 49,
+      "course_id": "MTH 253Z",
+      "term": "2028SP",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 39,
+      "course_id": "MTH 254",
+      "term": "2026FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 39,
+      "course_id": "MTH 254",
+      "term": "2026WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 49,
+      "course_id": "MTH 254",
+      "term": "2026SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 42,
+      "course_id": "MTH 254",
+      "term": "2027FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 42,
+      "course_id": "MTH 254",
+      "term": "2027WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 45,
+      "course_id": "MTH 254",
+      "term": "2027SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 49,
+      "course_id": "MTH 254",
+      "term": "2028FA",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 46,
+      "course_id": "MTH 254",
+      "term": "2028WI",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 48,
+      "course_id": "MTH 254",
+      "term": "2028SP",
+      "total_seats": 160
+    },
+    {
+      "available_seats": 10,
+      "course_id": "MTH 341",
+      "term": "2026FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 16,
+      "course_id": "MTH 341",
+      "term": "2026SP",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 15,
+      "course_id": "MTH 341",
+      "term": "2027FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 13,
+      "course_id": "MTH 341",
+      "term": "2027SP",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 12,
+      "course_id": "MTH 341",
+      "term": "2028FA",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 10,
+      "course_id": "MTH 341",
+      "term": "2028SP",
+      "total_seats": 90
+    },
+    {
+      "available_seats": 40,
+      "course_id": "PH 211",
+      "term": "2026FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 37,
+      "course_id": "PH 211",
+      "term": "2026WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 40,
+      "course_id": "PH 211",
+      "term": "2027FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 34,
+      "course_id": "PH 211",
+      "term": "2027WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 35,
+      "course_id": "PH 211",
+      "term": "2028FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 39,
+      "course_id": "PH 211",
+      "term": "2028WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 28,
+      "course_id": "PH 212",
+      "term": "2026WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 27,
+      "course_id": "PH 212",
+      "term": "2026SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 36,
+      "course_id": "PH 212",
+      "term": "2027WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 36,
+      "course_id": "PH 212",
+      "term": "2027SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 32,
+      "course_id": "PH 212",
+      "term": "2028WI",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 35,
+      "course_id": "PH 212",
+      "term": "2028SP",
+      "total_seats": 170
+    },
+    {
+      "available_seats": 59,
+      "course_id": "ST 314",
+      "term": "2026FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 61,
+      "course_id": "ST 314",
+      "term": "2026WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 57,
+      "course_id": "ST 314",
+      "term": "2026SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 44,
+      "course_id": "ST 314",
+      "term": "2026SU",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 56,
+      "course_id": "ST 314",
+      "term": "2027FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 53,
+      "course_id": "ST 314",
+      "term": "2027WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 62,
+      "course_id": "ST 314",
+      "term": "2027SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 40,
+      "course_id": "ST 314",
+      "term": "2027SU",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 64,
+      "course_id": "ST 314",
+      "term": "2028FA",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 60,
+      "course_id": "ST 314",
+      "term": "2028WI",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 57,
+      "course_id": "ST 314",
+      "term": "2028SP",
+      "total_seats": 200
+    },
+    {
+      "available_seats": 45,
+      "course_id": "ST 314",
+      "term": "2028SU",
+      "total_seats": 80
+    },
+    {
+      "available_seats": 67,
+      "course_id": "WR 121Z",
+      "term": "2026FA",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 69,
+      "course_id": "WR 121Z",
+      "term": "2026WI",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 70,
+      "course_id": "WR 121Z",
+      "term": "2026SP",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 50,
+      "course_id": "WR 121Z",
+      "term": "2026SU",
+      "total_seats": 88
+    },
+    {
+      "available_seats": 69,
+      "course_id": "WR 121Z",
+      "term": "2027FA",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 64,
+      "course_id": "WR 121Z",
+      "term": "2027WI",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 58,
+      "course_id": "WR 121Z",
+      "term": "2027SP",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 44,
+      "course_id": "WR 121Z",
+      "term": "2027SU",
+      "total_seats": 88
+    },
+    {
+      "available_seats": 60,
+      "course_id": "WR 121Z",
+      "term": "2028FA",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 66,
+      "course_id": "WR 121Z",
+      "term": "2028WI",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 53,
+      "course_id": "WR 121Z",
+      "term": "2028SP",
+      "total_seats": 220
+    },
+    {
+      "available_seats": 45,
+      "course_id": "WR 121Z",
+      "term": "2028SU",
+      "total_seats": 88
+    },
+    {
+      "available_seats": 56,
+      "course_id": "WR 227Z",
+      "term": "2026FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 45,
+      "course_id": "WR 227Z",
+      "term": "2026WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 48,
+      "course_id": "WR 227Z",
+      "term": "2026SP",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 44,
+      "course_id": "WR 227Z",
+      "term": "2027FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 50,
+      "course_id": "WR 227Z",
+      "term": "2027WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 50,
+      "course_id": "WR 227Z",
+      "term": "2027SP",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 45,
+      "course_id": "WR 227Z",
+      "term": "2028FA",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 52,
+      "course_id": "WR 227Z",
+      "term": "2028WI",
+      "total_seats": 180
+    },
+    {
+      "available_seats": 57,
+      "course_id": "WR 227Z",
+      "term": "2028SP",
+      "total_seats": 180
+    }
+  ],
+  "student_states": [
+    {
+      "completed_courses": [
+        "CS 161",
+        "CS 162",
+        "CS 225",
+        "ENGR 102",
+        "MTH 111Z",
+        "MTH 112Z",
+        "MTH 251Z",
+        "MTH 252Z",
+        "WR 121Z"
+      ],
+      "current_term": "2026FA",
+      "display_name": "Ada (on-track sophomore)",
+      "max_term_credits": 16,
+      "min_term_credits": 12,
+      "program": "OSU-CS-BS",
+      "scenario": "Finished the intro sequence and calculus on schedule. Her plan looks healthy, which is exactly why its hidden fragility is worth showing.",
+      "student_id": "persona-on-track",
+      "synthetic": true,
+      "target_graduation_term": "2029SP"
+    },
+    {
+      "completed_courses": [
+        "COMM 111Z",
+        "MTH 111Z",
+        "MTH 112Z",
+        "MTH 251Z",
+        "MTH 252Z",
+        "PH 211",
+        "WR 121Z"
+      ],
+      "current_term": "2026FA",
+      "display_name": "Bo (transfer student with credit gaps)",
+      "max_term_credits": 16,
+      "min_term_credits": 12,
+      "program": "OSU-CS-BS",
+      "scenario": "Transferred in with math and writing done but no CS credit at all, so the entire prerequisite chain still lies ahead.",
+      "student_id": "persona-transfer",
+      "synthetic": true,
+      "target_graduation_term": "2029SP"
+    },
+    {
+      "completed_courses": [
+        "CS 161",
+        "CS 162",
+        "CS 225",
+        "CS 271",
+        "ENGR 102",
+        "MTH 111Z",
+        "MTH 112Z",
+        "MTH 251Z",
+        "MTH 252Z",
+        "ST 314",
+        "WR 121Z"
+      ],
+      "current_term": "2026FA",
+      "display_name": "Cy (just failed a gateway course)",
+      "max_term_credits": 16,
+      "min_term_credits": 12,
+      "program": "OSU-CS-BS",
+      "scenario": "Withdrew from CS 261 last term. It is the highest-fanout course in the catalog, so one failed gateway now threatens the whole degree.",
+      "student_id": "persona-failed-gateway",
+      "synthetic": true,
+      "target_graduation_term": "2029WI"
+    }
+  ]
+}

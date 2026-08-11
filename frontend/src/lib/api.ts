@@ -73,3 +73,120 @@ export async function fetchHealth(timeoutMs = 8000): Promise<HealthResult> {
     clearTimeout(timer);
   }
 }
+// ---------------------------------------------------------------------------
+// Plan API types
+// ---------------------------------------------------------------------------
+
+export interface StudentSummary {
+  student_id: string;
+  display_name: string;
+  scenario: string;
+  program: string;
+  current_term: string;
+  target_graduation_term: string;
+  completed_credits: number;
+  remaining_courses: number;
+}
+
+export interface ScheduledCourse {
+  course_id: string;
+  title: string;
+  credits: number;
+  term: string;
+}
+
+export interface TermPlan {
+  term: string;
+  courses: ScheduledCourse[];
+  total_credits: number;
+}
+
+export interface PlanResponse {
+  student_id: string;
+  display_name: string;
+  status: string;
+  message: string;
+  graduation_term: string | null;
+  solver_wall_time: number;
+  completed_courses: ScheduledCourse[];
+  planned_terms: TermPlan[];
+  total_planned_credits: number;
+}
+
+export type StudentsResult =
+  | { ok: true; data: StudentSummary[] }
+  | { ok: false; error: string };
+
+export type PlanResult =
+  | { ok: true; data: PlanResponse }
+  | { ok: false; error: string };
+
+/**
+ * Fetch list of available students for planning.
+ */
+export async function fetchStudents(timeoutMs = 8000): Promise<StudentsResult> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(`${RIPPLE_API_BASE_URL}/students`, {
+      signal: controller.signal,
+      cache: "no-store",
+      headers: { accept: "application/json" },
+    });
+
+    if (!response.ok) {
+      return { ok: false, error: `Backend returned HTTP ${response.status}` };
+    }
+
+    return { ok: true, data: (await response.json()) as StudentSummary[] };
+  } catch (error) {
+    const message =
+      error instanceof Error && error.name === "AbortError"
+        ? `Request timed out after ${timeoutMs}ms`
+        : error instanceof Error
+          ? error.message
+          : "Unknown error";
+    return { ok: false, error: message };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Generate a degree plan for a student.
+ */
+export async function fetchPlan(
+  studentId: string,
+  timeoutMs = 15000
+): Promise<PlanResult> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(
+      `${RIPPLE_API_BASE_URL}/plan/${encodeURIComponent(studentId)}`,
+      {
+        signal: controller.signal,
+        cache: "no-store",
+        headers: { accept: "application/json" },
+      }
+    );
+
+    if (!response.ok) {
+      return { ok: false, error: `Backend returned HTTP ${response.status}` };
+    }
+
+    return { ok: true, data: (await response.json()) as PlanResponse };
+  } catch (error) {
+    const message =
+      error instanceof Error && error.name === "AbortError"
+        ? `Solver timed out after ${timeoutMs}ms`
+        : error instanceof Error
+          ? error.message
+          : "Unknown error";
+    return { ok: false, error: message };
+  } finally {
+    clearTimeout(timer);
+  }
+}
