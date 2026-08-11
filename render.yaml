@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: ripple-api
+    runtime: docker
+    # NOTE: the free plan spins down after ~15 min idle and cold-starts in
+    # 30-60s, which is a live-demo hazard. Either upgrade before judging opens
+    # or keep it warm (the frontend pings /health on load).
+    plan: free
+    region: oregon
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: RIPPLE_ENVIRONMENT
+        value: production
+      - key: RIPPLE_CORS_ORIGINS
+        sync: false
+      - key: RIPPLE_SUPABASE_URL
+        sync: false
+      - key: RIPPLE_SUPABASE_SERVICE_KEY
+        sync: false
+      - key: RIPPLE_OFFLINE
+        value: "false"
