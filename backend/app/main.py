@@ -12,6 +12,7 @@ from app.settings import Settings, get_settings
 from ripplepath.repository import load_catalog
 from ripplepath.graph import build_graph
 from ripplepath.solver import solve_plan, repair_plan, SolveStatus, RepairResult
+from ripplepath.score import compute_ripple_score
 
 STARTED_AT = time.time()
 
@@ -415,4 +416,204 @@ def repair(request: RepairRequest) -> RepairResponse:
         affected_courses=result.affected_courses,
         original_terms=_schedule_to_terms(result.original_schedule, courses),
         repaired_terms=_schedule_to_terms(result.repaired_schedule, courses),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Score API models (Phase 5)
+# ---------------------------------------------------------------------------
+
+
+class CourseFragilityResponse(BaseModel):
+    course_id: str
+    title: str
+    disruption_count: int
+    delay_count: int
+    delay_rate: float
+    blast_size: int
+
+
+class ScenarioResultResponse(BaseModel):
+    scenario_index: int
+    disruption_kind: str
+    disrupted_course: str
+    disruption_term: str | None
+    repair_status: str
+    graduation_delay: int
+    courses_moved: int
+    summer_terms_added: int
+    affected_course_count: int
+    solver_wall_time: float
+
+
+class RippleScoreResponse(BaseModel):
+    student_id: str
+    score: int
+    scenario_count: int
+    on_time_count: int
+    infeasible_count: int
+    delay_probability: float
+    mean_courses_moved: float
+    mean_graduation_delay: float
+    course_fragility: list[CourseFragilityResponse]
+    scenarios: list[ScenarioResultResponse]
+    rng_seed: int
+    total_wall_time: float
+
+
+# ---------------------------------------------------------------------------
+# Score API endpoint
+# ---------------------------------------------------------------------------
+
+
+@app.get("/score/{student_id}", response_model=RippleScoreResponse, tags=["score"])
+def get_score(student_id: str) -> RippleScoreResponse:
+    """Compute the Ripple Score for a student via Monte-Carlo stress test.
+
+    Runs ``n_scenarios`` seeded disruption simulations against the student's
+    optimal plan and returns:
+    - Ripple Score (0–100): % of scenarios where graduation date is preserved
+    - P(delay ≥ 1 term)
+    - Mean courses moved per repair
+    - Per-course fragility ranking
+    """
+    # Validate student exists.
+    try:
+        _CATALOG.student(student_id)
+    except KeyError:
+        raise HTTPException(status_code=404, detail=f"Student '{student_id}' not found")
+
+    # Solve the base plan first.
+    base = solve_plan(
+        catalog=_CATALOG,
+        student_id=student_id,
+        timeout_seconds=settings.solver_plan_timeout,
+        optimization_mode="balanced",
+    )
+
+    if not base.is_feasible or not base.schedule:
+        raise HTTPException(
+            status_code=422,
+            detail="Cannot compute Ripple Score: no feasible base plan exists",
+        )
+
+    # Run the Monte-Carlo stress test.
+    result = compute_ripple_score(
+        catalog=_CATALOG,
+        student_id=student_id,
+        base_schedule=base.schedule,
+        n_scenarios=settings.stress_scenarios,
+        seed=settings.stress_seed,
+        scenario_timeout=settings.solver_scenario_timeout,
+    )
+
+    return RippleScoreResponse(
+        student_id=result.student_id,
+        score=result.score,
+        scenario_count=result.scenario_count,
+        on_time_count=result.on_time_count,
+        infeasible_count=result.infeasible_count,
+        delay_probability=result.delay_probability,
+        mean_courses_moved=result.mean_courses_moved,
+        mean_graduation_delay=result.mean_graduation_delay,
+        course_fragility=[
+            CourseFragilityResponse(
+                course_id=c.course_id,
+                title=c.title,
+                disruption_count=c.disruption_count,
+                delay_count=c.delay_count,
+                delay_rate=c.delay_rate,
+                blast_size=c.blast_size,
+            )
+            for c in result.course_fragility
+        ],
+        scenarios=[
+            ScenarioResultResponse(
+                scenario_index=s.scenario_index,
+                disruption_kind=s.disruption_kind,
+                disrupted_course=s.disrupted_course,
+                disruption_term=s.disruption_term,
+                repair_status=s.repair_status,
+                graduation_delay=s.graduation_delay,
+                courses_moved=s.courses_moved,
+                summer_terms_added=s.summer_terms_added,
+                affected_course_count=s.affected_course_count,
+                solver_wall_time=round(s.solver_wall_time, 4),
+            )
+            for s in result.scenarios
+        ],
+        rng_seed=result.rng_seed,
+        total_wall_time=result.total_wall_time,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Blast radius endpoint (Phase 6)
+# ---------------------------------------------------------------------------
+
+
+class BlastRadiusResponse(BaseModel):
+    """Downstream impact of disrupting a single course."""
+
+    student_id: str
+    course_id: str
+    course_title: str
+    blast_radius: list[str]
+    """All courses downstream in the catalog graph."""
+    in_schedule: list[str]
+    """Subset of blast_radius that appear in the student's planned schedule."""
+    blast_size: int
+    impact_count: int
+
+
+@app.get(
+    "/blast/{student_id}/{course_id:path}",
+    response_model=BlastRadiusResponse,
+    tags=["simulator"],
+)
+def get_blast_radius(student_id: str, course_id: str) -> BlastRadiusResponse:
+    """Return the blast radius for a course in a student's plan.
+
+    This is a read-only graph query — no solver is involved.
+    Used by the Disruption Simulator to highlight affected courses before
+    the user commits to running the repair.
+    """
+    from ripplepath.graph import blast_radius as compute_blast
+
+    # Validate student.
+    try:
+        student = _CATALOG.student(student_id)
+    except KeyError:
+        raise HTTPException(status_code=404, detail=f"Student '{student_id}' not found")
+
+    # Validate course.
+    courses = _CATALOG.course_map()
+    if course_id not in courses:
+        raise HTTPException(status_code=404, detail=f"Course '{course_id}' not found")
+
+    # Compute blast radius.
+    try:
+        radius = compute_blast(_GRAPH, course_id)
+    except KeyError:
+        radius = set()
+
+    # Solve plan to get the schedule (or use completed + target).
+    plan = solve_plan(
+        catalog=_CATALOG,
+        student_id=student_id,
+        timeout_seconds=settings.solver_plan_timeout,
+        optimization_mode="balanced",
+    )
+    scheduled = set(plan.schedule.keys()) if plan.is_feasible else set()
+
+    in_schedule = sorted(radius & scheduled)
+
+    return BlastRadiusResponse(
+        student_id=student_id,
+        course_id=course_id,
+        course_title=courses[course_id].title,
+        blast_radius=sorted(radius),
+        in_schedule=in_schedule,
+        blast_size=len(radius),
+        impact_count=len(in_schedule),
     )

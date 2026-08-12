@@ -3798,11 +3798,11 @@
         "WR 121Z"
       ],
       "current_term": "2026FA",
-      "display_name": "Ada (on-track sophomore)",
+      "display_name": "Alex (on-track sophomore)",
       "max_term_credits": 16,
       "min_term_credits": 12,
       "program": "OSU-CS-BS",
-      "scenario": "Finished the intro sequence and calculus on schedule. Her plan looks healthy, which is exactly why its hidden fragility is worth showing.",
+      "scenario": "Finished the intro sequence and calculus on schedule. Their plan looks healthy, which is exactly why its hidden fragility is worth showing.",
       "student_id": "persona-on-track",
       "synthetic": true,
       "target_graduation_term": "2029SP"
@@ -3818,7 +3818,7 @@
         "WR 121Z"
       ],
       "current_term": "2026FA",
-      "display_name": "Bo (transfer student with credit gaps)",
+      "display_name": "Blake (transfer student with credit gaps)",
       "max_term_credits": 16,
       "min_term_credits": 12,
       "program": "OSU-CS-BS",
@@ -3842,7 +3842,7 @@
         "WR 121Z"
       ],
       "current_term": "2026FA",
-      "display_name": "Cy (just failed a gateway course)",
+      "display_name": "Casey (just failed a gateway course)",
       "max_term_credits": 16,
       "min_term_credits": 12,
       "program": "OSU-CS-BS",

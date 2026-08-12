@@ -312,9 +312,9 @@ SEAT_SEED = 20260810
 PERSONAS: list[StudentState] = [
     StudentState(
         student_id="persona-on-track",
-        display_name="Ada (on-track sophomore)",
+        display_name="Alex (on-track sophomore)",
         scenario=(
-            "Finished the intro sequence and calculus on schedule. Her plan looks "
+            "Finished the intro sequence and calculus on schedule. Their plan looks "
             "healthy, which is exactly why its hidden fragility is worth showing."
         ),
         program=PROGRAM,
@@ -336,7 +336,7 @@ PERSONAS: list[StudentState] = [
     ),
     StudentState(
         student_id="persona-transfer",
-        display_name="Bo (transfer student with credit gaps)",
+        display_name="Blake (transfer student with credit gaps)",
         scenario=(
             "Transferred in with math and writing done but no CS credit at all, so "
             "the entire prerequisite chain still lies ahead."
@@ -358,7 +358,7 @@ PERSONAS: list[StudentState] = [
     ),
     StudentState(
         student_id="persona-failed-gateway",
-        display_name="Cy (just failed a gateway course)",
+        display_name="Casey (just failed a gateway course)",
         scenario=(
             "Withdrew from CS 261 last term. It is the highest-fanout course in the "
             "catalog, so one failed gateway now threatens the whole degree."

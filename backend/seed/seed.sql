@@ -609,8 +609,8 @@ VALUES
 INSERT INTO student_states
   (student_id, display_name, synthetic, scenario, program, completed_courses, current_term, target_graduation_term, max_term_credits, min_term_credits)
 VALUES
-  ('persona-on-track', 'Ada (on-track sophomore)', true, 'Finished the intro sequence and calculus on schedule. Her plan looks healthy, which is exactly why its hidden fragility is worth showing.', 'OSU-CS-BS', ARRAY['CS 161', 'CS 162', 'CS 225', 'ENGR 102', 'MTH 111Z', 'MTH 112Z', 'MTH 251Z', 'MTH 252Z', 'WR 121Z']::text[], '2026FA', '2029SP', 16, 12),
-  ('persona-transfer', 'Bo (transfer student with credit gaps)', true, 'Transferred in with math and writing done but no CS credit at all, so the entire prerequisite chain still lies ahead.', 'OSU-CS-BS', ARRAY['COMM 111Z', 'MTH 111Z', 'MTH 112Z', 'MTH 251Z', 'MTH 252Z', 'PH 211', 'WR 121Z']::text[], '2026FA', '2029SP', 16, 12),
-  ('persona-failed-gateway', 'Cy (just failed a gateway course)', true, 'Withdrew from CS 261 last term. It is the highest-fanout course in the catalog, so one failed gateway now threatens the whole degree.', 'OSU-CS-BS', ARRAY['CS 161', 'CS 162', 'CS 225', 'CS 271', 'ENGR 102', 'MTH 111Z', 'MTH 112Z', 'MTH 251Z', 'MTH 252Z', 'ST 314', 'WR 121Z']::text[], '2026FA', '2029WI', 16, 12);
+  ('persona-on-track', 'Alex (on-track sophomore)', true, 'Finished the intro sequence and calculus on schedule. Their plan looks healthy, which is exactly why its hidden fragility is worth showing.', 'OSU-CS-BS', ARRAY['CS 161', 'CS 162', 'CS 225', 'ENGR 102', 'MTH 111Z', 'MTH 112Z', 'MTH 251Z', 'MTH 252Z', 'WR 121Z']::text[], '2026FA', '2029SP', 16, 12),
+  ('persona-transfer', 'Blake (transfer student with credit gaps)', true, 'Transferred in with math and writing done but no CS credit at all, so the entire prerequisite chain still lies ahead.', 'OSU-CS-BS', ARRAY['COMM 111Z', 'MTH 111Z', 'MTH 112Z', 'MTH 251Z', 'MTH 252Z', 'PH 211', 'WR 121Z']::text[], '2026FA', '2029SP', 16, 12),
+  ('persona-failed-gateway', 'Casey (just failed a gateway course)', true, 'Withdrew from CS 261 last term. It is the highest-fanout course in the catalog, so one failed gateway now threatens the whole degree.', 'OSU-CS-BS', ARRAY['CS 161', 'CS 162', 'CS 225', 'CS 271', 'ENGR 102', 'MTH 111Z', 'MTH 112Z', 'MTH 251Z', 'MTH 252Z', 'ST 314', 'WR 121Z']::text[], '2026FA', '2029WI', 16, 12);
 
 COMMIT;

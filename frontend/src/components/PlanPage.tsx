@@ -4,20 +4,27 @@ import { useState, useEffect } from "react";
 import {
   fetchStudents,
   fetchPlan,
+  fetchScore,
   StudentSummary,
   PlanResponse,
+  RippleScoreResponse,
 } from "@/lib/api";
 import StudentSelector from "./StudentSelector";
 import SemesterGrid from "./SemesterGrid";
+import RippleScoreDisplay from "./RippleScoreDisplay";
+import DisruptionSimulator from "./DisruptionSimulator";
 
-type LoadingState = "idle" | "loading-students" | "loading-plan" | "error";
+type LoadingState = "idle" | "loading-students" | "loading-plan" | "loading-score" | "error";
+type ActiveTab = "plan" | "simulator" | "score";
 
 export default function PlanPage() {
   const [students, setStudents] = useState<StudentSummary[]>([]);
   const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
   const [plan, setPlan] = useState<PlanResponse | null>(null);
+  const [score, setScore] = useState<RippleScoreResponse | null>(null);
   const [loadingState, setLoadingState] = useState<LoadingState>("idle");
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<ActiveTab>("plan");
 
   // Load students on mount.
   useEffect(() => {
@@ -42,12 +49,28 @@ export default function PlanPage() {
 
     setSelectedStudentId(studentId);
     setPlan(null);
+    setScore(null);
+    setActiveTab("plan");
     setLoadingState("loading-plan");
     setError(null);
 
     const result = await fetchPlan(studentId);
     if (result.ok) {
       setPlan(result.data);
+      setLoadingState("idle");
+    } else {
+      setError(result.error);
+      setLoadingState("error");
+    }
+  }
+
+  async function handleRunStressTest() {
+    if (!selectedStudentId) return;
+    setLoadingState("loading-score");
+    setError(null);
+    const result = await fetchScore(selectedStudentId);
+    if (result.ok) {
+      setScore(result.data);
       setLoadingState("idle");
     } else {
       setError(result.error);
@@ -70,7 +93,7 @@ export default function PlanPage() {
           Degree Planner
         </h1>
         <p className="mt-2 text-base text-neutral-600">
-          Select a student persona to generate an optimized degree plan.
+          Select a student persona to generate an optimized degree plan and resilience score.
         </p>
       </div>
 
@@ -95,67 +118,118 @@ export default function PlanPage() {
         />
       </section>
 
-      {/* Plan result */}
-      {selectedStudentId && (
+      {/* Loading plan */}
+      {loadingState === "loading-plan" && (
+        <div className="mt-10 flex items-center gap-3 rounded-xl border border-neutral-200 bg-white p-6">
+          <div className="h-5 w-5 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
+          <p className="text-sm text-neutral-600">
+            Generating optimal plan with CP-SAT solver…
+          </p>
+        </div>
+      )}
+
+      {/* Infeasible plan */}
+      {plan && plan.status === "INFEASIBLE" && (
+        <div className="mt-10 rounded-xl border border-red-200 bg-red-50 p-6">
+          <p className="font-medium text-red-800">No feasible plan found</p>
+          <p className="mt-1 text-sm text-red-600">{plan.message}</p>
+        </div>
+      )}
+
+      {/* Main tabbed section — only when we have a feasible plan */}
+      {plan && plan.status !== "INFEASIBLE" && loadingState !== "loading-plan" && (
         <section className="mt-10">
-          <div className="mb-4 flex items-center justify-between">
-            <div>
-              <h2 className="text-lg font-semibold text-neutral-800">
-                Degree Plan
-                {selectedStudent && (
-                  <span className="ml-2 text-base font-normal text-neutral-500">
-                    for {selectedStudent.display_name}
-                  </span>
-                )}
-              </h2>
-              {plan && (
-                <p className="mt-1 text-sm text-neutral-500">
-                  Status:{" "}
-                  <span
-                    className={`font-medium ${
-                      plan.status === "OPTIMAL" || plan.status === "FEASIBLE"
-                        ? "text-emerald-600"
-                        : plan.status === "INFEASIBLE"
-                          ? "text-red-600"
-                          : "text-amber-600"
-                    }`}
-                  >
-                    {plan.status}
-                  </span>
-                  {" · "}
-                  Solved in {(plan.solver_wall_time * 1000).toFixed(0)}ms
-                </p>
-              )}
+          {/* Tab bar */}
+          <div className="mb-6 flex items-center gap-1 border-b border-neutral-200">
+            {(
+              [
+                { id: "plan", label: "Degree Plan" },
+                { id: "simulator", label: "Disruption Simulator" },
+                { id: "score", label: "Ripple Score" },
+              ] as { id: ActiveTab; label: string }[]
+            ).map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => setActiveTab(id)}
+                className={`px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px ${
+                  activeTab === id
+                    ? "border-blue-500 text-blue-600"
+                    : "border-transparent text-neutral-500 hover:text-neutral-700"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+            <div className="ml-auto text-xs text-neutral-400">
+              {selectedStudent?.display_name} ·{" "}
+              <span
+                className={`font-medium ${
+                  plan.status === "OPTIMAL"
+                    ? "text-emerald-600"
+                    : "text-amber-600"
+                }`}
+              >
+                {plan.status}
+              </span>{" "}
+              · {(plan.solver_wall_time * 1000).toFixed(0)}ms
             </div>
           </div>
 
-          {loadingState === "loading-plan" && (
-            <div className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white p-6">
-              <div className="h-5 w-5 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
-              <p className="text-sm text-neutral-600">
-                Generating optimal plan with CP-SAT solver...
-              </p>
-            </div>
+          {/* Plan tab */}
+          {activeTab === "plan" && (
+            <SemesterGrid
+              completedCourses={plan.completed_courses}
+              plannedTerms={plan.planned_terms}
+              graduationTerm={plan.graduation_term}
+              totalPlannedCredits={plan.total_planned_credits}
+            />
           )}
 
-          {plan && loadingState !== "loading-plan" && (
-            <>
-              {plan.status === "INFEASIBLE" ? (
-                <div className="rounded-xl border border-red-200 bg-red-50 p-6">
-                  <p className="font-medium text-red-800">
-                    No feasible plan found
-                  </p>
-                  <p className="mt-1 text-sm text-red-600">{plan.message}</p>
-                </div>
-              ) : (
-                <SemesterGrid
-                  completedCourses={plan.completed_courses}
-                  plannedTerms={plan.planned_terms}
-                  graduationTerm={plan.graduation_term}
-                  totalPlannedCredits={plan.total_planned_credits}
-                />
+          {/* Simulator tab */}
+          {activeTab === "simulator" && (
+            <DisruptionSimulator
+              studentId={selectedStudentId!}
+              completedCourses={plan.completed_courses}
+              plannedTerms={plan.planned_terms}
+              graduationTerm={plan.graduation_term}
+              totalPlannedCredits={plan.total_planned_credits}
+              baseSchedule={Object.fromEntries(
+                plan.planned_terms.flatMap((t) =>
+                  t.courses.map((c) => [c.course_id, t.term])
+                )
               )}
-            </>
+            />
+          )}
+
+          {/* Score tab */}
+          {activeTab === "score" && (
+            <div>
+              {!score && loadingState !== "loading-score" && (
+                <div className="rounded-xl border-2 border-dashed border-neutral-200 p-10 text-center">
+                  <p className="text-base font-medium text-neutral-600">
+                    How fragile is this plan?
+                  </p>
+                  <p className="mt-2 text-sm text-neutral-400">
+                    Run 200 seeded disruption scenarios through the CP-SAT repair solver to
+                    get a 0–100 resilience score and course-level fragility ranking.
+                  </p>
+                  <button
+                    onClick={handleRunStressTest}
+                    className="mt-4 rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                  >
+                    Run stress test
+                  </button>
+                </div>
+              )}
+
+              {loadingState === "loading-score" && (
+                <RippleScoreDisplay data={{} as RippleScoreResponse} loading />
+              )}
+
+              {score && loadingState !== "loading-score" && (
+                <RippleScoreDisplay data={score} />
+              )}
+            </div>
           )}
         </section>
       )}

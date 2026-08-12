@@ -119,9 +119,9 @@ access dates in [ATTRIBUTION.md](ATTRIBUTION.md).
 - [x] **Phase 2** — NetworkX graph + CP-SAT feasibility (oracle tests)
 - [x] **Phase 3** — Vertical slice: `/plan` + semester grid UI (first demoable build)
 - [x] **Phase 4** — Disruption engine + minimum repair
-- [ ] **Phase 5** — Ripple Score + fragility ranking
-- [ ] **Phase 6** — Disruption Simulator + repair animation
-- [ ] **Phase 7** — Submission package
+- [x] **Phase 5** — Ripple Score + fragility ranking
+- [x] **Phase 6** — Disruption Simulator + repair animation
+- [x] **Phase 7** — Submission package
 
 ## Disclosure
 

@@ -535,14 +535,6 @@ def repair_plan(
     if disruption.kind == "FAILED_COURSE" and disruption.course_id in completed:
         completed = completed - {disruption.course_id}
 
-    # Determine original graduation term.
-    if original_schedule:
-        orig_grad_idx = max(term_index(t) for t in original_schedule.values())
-        orig_grad_term = max(original_schedule.values(), key=term_index)
-    else:
-        orig_grad_idx = term_index(student.target_graduation_term)
-        orig_grad_term = student.target_graduation_term
-
     # Extend planning horizon slightly beyond original graduation in case delay is needed.
     # Allow up to 4 extra terms for repair.
     terms = terms_between(student.current_term, student.target_graduation_term)
@@ -552,6 +544,19 @@ def repair_plan(
         extended = term_sequence(last_term, extra_terms + 1)[1:]  # Skip current last
         terms = terms + extended
     terms = terms[:20]  # Hard cap for tractability.
+
+    # Determine original graduation position as an INDEX into terms[].
+    # Critical: must use the list position, not the global term_index value,
+    # because the CP-SAT grad_idx variable is bounded [0, len(terms)-1].
+    if original_schedule and terms:
+        orig_grad_term = max(
+            (t for t in original_schedule.values() if t in terms),
+            key=lambda t: terms.index(t),
+            default=terms[-1],
+        )
+    else:
+        orig_grad_term = student.target_graduation_term
+    orig_grad_idx = terms.index(orig_grad_term) if orig_grad_term in terms else len(terms) - 1
 
     # Count summer terms that were used in original schedule (before disruption).
     orig_summer_terms = {
@@ -786,9 +791,9 @@ def repair_plan(
                     break
 
         # Compute metrics.
-        grad_delay = solver.Value(delay) if delay else 0
-        n_moved = solver.Value(courses_moved) if courses_moved else 0
-        n_summer = solver.Value(summer_added) if summer_added else 0
+        grad_delay = solver.Value(delay)
+        n_moved = solver.Value(courses_moved)
+        n_summer = solver.Value(summer_added)
 
         # Find which courses actually changed.
         changed = [

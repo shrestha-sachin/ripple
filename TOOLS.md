@@ -8,13 +8,11 @@ as any new dependency.
 
 | Tool | Model | How it was used |
 | --- | --- | --- |
-| GitHub Copilot (agent mode) | Claude Opus 5 | Scaffolding, solver implementation, tests, UI code, reviewed and directed by the team |
+| GitHub Copilot (agent mode) | Claude Sonnet 4.6 | Scaffolding, solver implementation, tests, UI code, reviewed and directed by the team |
 
 ## AI used *inside* the product at runtime
 
-| Service | Model | Role | Boundary |
-| --- | --- | --- | --- |
-| Anthropic Claude API | TBD (Phase 6) | Translates solver output into plain-English rationale | Explanation only. Never determines plan feasibility, course ordering, or validity — CP-SAT is the sole source of truth. Falls back to a deterministic template if the API is unavailable. |
+None. All plan generation, feasibility checking, repair optimisation, and Ripple Score computation are performed by deterministic algorithms (CP-SAT + NetworkX). No language model is called at runtime.
 
 ## Backend
 

@@ -39,11 +39,31 @@ function termColor(term: string): string {
 
 interface CourseCardProps {
   course: ScheduledCourse;
+  highlight?: "disrupted" | "blast" | "moved" | "none";
+  movedFromTerm?: string;
+  onClick?: (courseId: string) => void;
+  interactive?: boolean;
 }
 
-function CourseCard({ course }: CourseCardProps) {
+function CourseCard({ course, highlight = "none", movedFromTerm, onClick, interactive }: CourseCardProps) {
+  const base = "rounded-lg border p-3 shadow-sm transition-all";
+  const styleMap: Record<string, string> = {
+    disrupted: "border-red-400 bg-red-50 ring-2 ring-red-300",
+    blast: "border-amber-400 bg-amber-50 ring-1 ring-amber-200",
+    moved: "border-blue-400 bg-blue-50 ring-2 ring-blue-200",
+    none: "border-neutral-200 bg-white hover:shadow-md",
+  };
+  const clickable = interactive && onClick;
+
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-3 shadow-sm transition-shadow hover:shadow-md">
+    <button
+      type="button"
+      disabled={!clickable}
+      onClick={clickable ? () => onClick(course.course_id) : undefined}
+      className={`w-full text-left ${base} ${styleMap[highlight]} ${
+        clickable ? "cursor-pointer hover:scale-[1.02] active:scale-[0.98]" : "cursor-default"
+      }`}
+    >
       <div className="flex items-start justify-between gap-2">
         <span className="font-mono text-sm font-medium text-neutral-900">
           {course.course_id}
@@ -55,19 +75,57 @@ function CourseCard({ course }: CourseCardProps) {
       <p className="mt-1 text-xs leading-snug text-neutral-500 line-clamp-2">
         {course.title}
       </p>
-    </div>
+      {highlight === "disrupted" && (
+        <p className="mt-1 text-xs font-medium text-red-600">⚠ Disrupted</p>
+      )}
+      {highlight === "blast" && (
+        <p className="mt-1 text-xs font-medium text-amber-600">↘ At risk</p>
+      )}
+      {highlight === "moved" && movedFromTerm && (
+        <p className="mt-1 text-xs font-medium text-blue-600">
+          ← moved from {formatTerm(movedFromTerm)}
+        </p>
+      )}
+      {highlight === "moved" && !movedFromTerm && (
+        <p className="mt-1 text-xs font-medium text-blue-600">↻ Rescheduled</p>
+      )}
+    </button>
   );
 }
 
 interface TermColumnProps {
   termPlan: TermPlan;
   isGraduationTerm?: boolean;
+  disruptedCourse?: string | null;
+  blastRadius?: Set<string>;
+  movedCourses?: Record<string, string>; // course_id -> original term
+  onCourseClick?: (courseId: string) => void;
+  interactive?: boolean;
+  isNew?: boolean; // term added by repair
 }
 
-function TermColumn({ termPlan, isGraduationTerm }: TermColumnProps) {
+function TermColumn({
+  termPlan,
+  isGraduationTerm,
+  disruptedCourse,
+  blastRadius,
+  movedCourses,
+  onCourseClick,
+  interactive,
+  isNew,
+}: TermColumnProps) {
+  const highlight = (courseId: string): CourseCardProps["highlight"] => {
+    if (courseId === disruptedCourse) return "disrupted";
+    if (movedCourses && courseId in movedCourses) return "moved";
+    if (blastRadius?.has(courseId)) return "blast";
+    return "none";
+  };
+
   return (
     <div
-      className={`flex min-w-[200px] flex-col rounded-xl border-2 p-4 ${termColor(termPlan.term)}`}
+      className={`flex min-w-[200px] flex-col rounded-xl border-2 p-4 transition-colors ${
+        isNew ? "border-blue-300 bg-blue-50" : termColor(termPlan.term)
+      }`}
     >
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-neutral-800">
@@ -77,6 +135,9 @@ function TermColumn({ termPlan, isGraduationTerm }: TermColumnProps) {
               🎓 Graduation
             </span>
           )}
+          {isNew && (
+            <span className="ml-2 text-xs font-normal text-blue-600">new</span>
+          )}
         </h3>
         <span className="text-xs font-medium text-neutral-500">
           {termPlan.total_credits} credits
@@ -84,7 +145,14 @@ function TermColumn({ termPlan, isGraduationTerm }: TermColumnProps) {
       </div>
       <div className="flex flex-col gap-2">
         {termPlan.courses.map((course) => (
-          <CourseCard key={course.course_id} course={course} />
+          <CourseCard
+            key={course.course_id}
+            course={course}
+            highlight={highlight(course.course_id)}
+            movedFromTerm={movedCourses?.[course.course_id]}
+            onClick={onCourseClick}
+            interactive={interactive}
+          />
         ))}
       </div>
     </div>
@@ -128,6 +196,14 @@ interface SemesterGridProps {
   plannedTerms: TermPlan[];
   graduationTerm: string | null;
   totalPlannedCredits: number;
+  // Simulator props
+  disruptedCourse?: string | null;
+  blastRadius?: Set<string>;
+  movedCourses?: Record<string, string>;
+  newTerms?: Set<string>;
+  onCourseClick?: (courseId: string) => void;
+  interactive?: boolean;
+  label?: string;
 }
 
 export default function SemesterGrid({
@@ -135,11 +211,25 @@ export default function SemesterGrid({
   plannedTerms,
   graduationTerm,
   totalPlannedCredits,
+  disruptedCourse,
+  blastRadius,
+  movedCourses,
+  newTerms,
+  onCourseClick,
+  interactive,
+  label,
 }: SemesterGridProps) {
   const completedCredits = completedCourses.reduce((sum, c) => sum + c.credits, 0);
 
   return (
     <div className="flex flex-col gap-6">
+      {/* Label */}
+      {label && (
+        <p className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
+          {label}
+        </p>
+      )}
+
       {/* Summary stats */}
       <div className="flex flex-wrap gap-4 text-sm">
         <div className="rounded-lg bg-neutral-100 px-4 py-2">
@@ -175,6 +265,30 @@ export default function SemesterGrid({
         <CompletedSection courses={completedCourses} />
       )}
 
+      {/* Legend when in blast-radius mode */}
+      {(disruptedCourse || (blastRadius && blastRadius.size > 0)) && (
+        <div className="flex flex-wrap gap-3 text-xs">
+          {disruptedCourse && (
+            <span className="flex items-center gap-1.5 rounded-full bg-red-100 px-3 py-1 text-red-700">
+              <span className="h-2 w-2 rounded-full bg-red-500" />
+              Disrupted
+            </span>
+          )}
+          {blastRadius && blastRadius.size > 0 && (
+            <span className="flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-amber-700">
+              <span className="h-2 w-2 rounded-full bg-amber-500" />
+              At risk ({blastRadius.size} courses)
+            </span>
+          )}
+          {movedCourses && Object.keys(movedCourses).length > 0 && (
+            <span className="flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-blue-700">
+              <span className="h-2 w-2 rounded-full bg-blue-500" />
+              Rescheduled ({Object.keys(movedCourses).length} courses)
+            </span>
+          )}
+        </div>
+      )}
+
       {/* Planned terms - horizontal scroll */}
       <div className="overflow-x-auto pb-4">
         <div className="flex gap-4">
@@ -183,6 +297,12 @@ export default function SemesterGrid({
               key={termPlan.term}
               termPlan={termPlan}
               isGraduationTerm={termPlan.term === graduationTerm}
+              disruptedCourse={disruptedCourse}
+              blastRadius={blastRadius}
+              movedCourses={movedCourses}
+              onCourseClick={onCourseClick}
+              interactive={interactive}
+              isNew={newTerms?.has(termPlan.term)}
             />
           ))}
         </div>
