@@ -190,13 +190,13 @@ class RegistrationState(BaseModel):
 class StudentState(BaseModel):
     """A synthetic student. Mirrors the ``student_state`` table.
 
-    Every persona in Ripple is fictional. Ripple never ingests a real
-    transcript, and ``student_id`` is a slug the team authored by hand.
+    Ripple supports both synthetic demo personas and real student scenarios
+    provided by the user in local/private deployments.
     """
 
     student_id: str
     display_name: str
-    synthetic: Literal[True] = True
+    synthetic: bool = True
     scenario: str
     program: str
     completed_courses: list[str]

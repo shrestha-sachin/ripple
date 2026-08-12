@@ -100,6 +100,7 @@ def load_catalog(
     offline: bool,
     supabase_url: str = "",
     supabase_service_key: str = "",
+    fixture_path: str = "",
 ) -> tuple[Catalog, str]:
     """Load the catalog, preferring Supabase but never failing the demo.
 
@@ -113,8 +114,14 @@ def load_catalog(
             return repo.load(), repo.name
         except Exception:
             # Demo safety: fall through to the fixture rather than raising.
-            fixture = FixtureRepository()
+            fixture = (
+                FixtureRepository(Path(fixture_path))
+                if fixture_path
+                else FixtureRepository()
+            )
             return fixture.load(), "fixture-fallback"
 
-    fixture = FixtureRepository()
+    fixture = (
+        FixtureRepository(Path(fixture_path)) if fixture_path else FixtureRepository()
+    )
     return fixture.load(), fixture.name

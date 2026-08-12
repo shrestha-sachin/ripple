@@ -1,23 +1,261 @@
+import json
+import re
 import time
+from csv import DictReader
 from importlib.metadata import PackageNotFoundError, version
+from io import BytesIO
+from io import StringIO
+from pathlib import Path
 from typing import Literal
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from fastapi import HTTPException
+from fastapi import File, Form, HTTPException, UploadFile
 
 from app.settings import Settings, get_settings
+from ripplepath.models import Catalog, StudentState
 from ripplepath.repository import load_catalog
 from ripplepath.graph import build_graph
 from ripplepath.solver import solve_plan, repair_plan, SolveStatus, RepairResult
 from ripplepath.score import compute_ripple_score
 
 STARTED_AT = time.time()
+settings: Settings = get_settings()
+
+
+def _upsert_student(student: StudentState) -> None:
+    """Insert or replace a student record in the in-memory catalog."""
+    global _CATALOG
+    for index, existing in enumerate(_CATALOG.student_states):
+        if existing.student_id == student.student_id:
+            _CATALOG.student_states[index] = student
+            return
+    _CATALOG.student_states.append(student)
+
+
+def _validate_student_against_catalog(student: StudentState) -> None:
+    courses = set(_CATALOG.course_map().keys())
+    missing = sorted(set(student.completed_courses) - courses)
+    if missing:
+        raise ValueError(f"unknown completed courses: {missing}")
+
+    programs = {p.program for p in _CATALOG.programs}
+    if student.program not in programs:
+        raise ValueError(
+            f"unknown program '{student.program}'. Known programs: {sorted(programs)}"
+        )
+
+
+def _inject_real_student_from_file(path: str) -> None:
+    """Load a student JSON file and inject it as non-synthetic."""
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    student = StudentState.model_validate(payload).model_copy(update={"synthetic": False})
+    _validate_student_against_catalog(student)
+    _upsert_student(student)
+
+
+_COURSE_PATTERN = re.compile(r"\b([A-Za-z]{2,6})\s*[- ]?\s*(\d{3}[A-Za-z]?)\b")
+
+
+def _normalize_course_id(raw: str) -> str:
+    match = _COURSE_PATTERN.search(raw)
+    if not match:
+        return ""
+    return f"{match.group(1).upper()} {match.group(2).upper()}"
+
+
+def _extract_courses_from_text(content: str) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    skip_line_markers = (
+        "student id",
+        "student_id",
+        "name:",
+        "display_name",
+        "program:",
+        "major:",
+        "current term",
+        "target graduation term",
+    )
+    for line in content.splitlines():
+        lower = line.lower()
+        if any(marker in lower for marker in skip_line_markers):
+            continue
+        for match in _COURSE_PATTERN.finditer(line):
+            cid = f"{match.group(1).upper()} {match.group(2).upper()}"
+            if cid not in seen:
+                seen.add(cid)
+                out.append(cid)
+    return out
+
+
+def _extract_metadata_from_text(content: str) -> dict[str, str]:
+    metadata: dict[str, str] = {}
+    for line in content.splitlines():
+        lower = line.lower()
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        key = key.strip().lower()
+        value = value.strip()
+        if not value:
+            continue
+        if key in {"student id", "student_id", "id"}:
+            metadata["student_id"] = value
+        elif key in {"name", "student", "display_name"}:
+            metadata["display_name"] = value
+        elif key in {"program", "major"}:
+            metadata["program"] = value
+        elif key in {"current term", "current_term"}:
+            metadata["current_term"] = value.replace(" ", "")
+        elif key in {"target graduation term", "target_graduation_term"}:
+            metadata["target_graduation_term"] = value.replace(" ", "")
+    return metadata
+
+
+def _parse_student_from_json(content: str) -> StudentState:
+    payload = json.loads(content)
+    if isinstance(payload, dict) and "student" in payload:
+        payload = payload["student"]
+    if isinstance(payload, dict) and "courses" in payload and "completed_courses" not in payload:
+        payload = dict(payload)
+        payload["completed_courses"] = payload.get("courses", [])
+    student = StudentState.model_validate(payload).model_copy(update={"synthetic": False})
+    return student
+
+
+def _parse_student_from_csv_or_text(
+    content: str,
+    *,
+    student_id: str,
+    display_name: str,
+    program: str,
+    current_term: str,
+    target_graduation_term: str,
+    max_term_credits: int,
+    min_term_credits: int,
+) -> StudentState:
+    metadata = _extract_metadata_from_text(content)
+
+    # Try CSV column-based extraction first.
+    csv_courses: list[str] = []
+    try:
+        reader = DictReader(StringIO(content))
+        if reader.fieldnames:
+            for row in reader:
+                for key in ("course_id", "completed_course", "course", "class"):
+                    value = (row.get(key) or row.get(key.upper()) or "").strip()
+                    normalized = _normalize_course_id(value)
+                    if normalized:
+                        csv_courses.append(normalized)
+    except Exception:
+        csv_courses = []
+
+    extracted = csv_courses or _extract_courses_from_text(content)
+    extracted = sorted(set(extracted))
+
+    if not extracted:
+        raise ValueError(
+            "No course IDs detected in transcript. Upload JSON with completed_courses "
+            "or CSV/TXT containing values like 'CS 161'."
+        )
+
+    courses = extracted
+
+    fallback_program = _CATALOG.programs[0].program if _CATALOG.programs else ""
+    student = StudentState(
+        student_id=(metadata.get("student_id") or student_id or "real-student").strip(),
+        display_name=(metadata.get("display_name") or display_name or "Real Student").strip(),
+        synthetic=False,
+        scenario="Imported from transcript upload",
+        program=(metadata.get("program") or program or fallback_program).strip(),
+        completed_courses=courses,
+        current_term=(metadata.get("current_term") or current_term or "2026FA").strip(),
+        target_graduation_term=(
+            metadata.get("target_graduation_term") or target_graduation_term or "2029SP"
+        ).strip(),
+        max_term_credits=max_term_credits,
+        min_term_credits=min_term_credits,
+    )
+    return student
+
+
+def _extract_text_from_pdf(raw: bytes) -> str:
+    """Extract UTF-8 text from a PDF transcript file."""
+    try:
+        from pypdf import PdfReader
+    except Exception as exc:  # pragma: no cover - exercised via runtime env
+        raise ValueError(
+            "PDF parsing dependency missing. Install pypdf to upload PDF transcripts."
+        ) from exc
+
+    try:
+        reader = PdfReader(BytesIO(raw))
+        text_parts = [(page.extract_text() or "") for page in reader.pages]
+    except Exception as exc:
+        raise ValueError("Could not read PDF transcript. Try exporting a text-based PDF.") from exc
+
+    text = "\n".join(part.strip() for part in text_parts if part and part.strip())
+    if not text:
+        raise ValueError(
+            "No text could be extracted from PDF transcript. "
+            "If this is a scanned image PDF, run OCR first."
+        )
+    return text
+
+
+def _student_progress(student: StudentState) -> tuple[int, int, list[str]]:
+    """Return completed count, remaining count, and remaining course ids."""
+    from ripplepath.graph import degree_relevant_courses
+
+    completed = set(student.completed_courses)
+    relevant = degree_relevant_courses(_CATALOG, _GRAPH, student.program)
+    remaining_ids = sorted(relevant - completed)
+    return len(completed), len(remaining_ids), remaining_ids
+
+
+def _scrub_courses_for_catalog(
+    student: StudentState,
+) -> tuple[StudentState, list[str], list[str], list[str], list[str]]:
+    """Split transcript courses into catalog-recognized and unknown IDs."""
+    extracted = sorted(set(student.completed_courses))
+    known_ids = set(_CATALOG.course_map().keys())
+    recognized = sorted(c for c in extracted if c in known_ids)
+    unrecognized = sorted(c for c in extracted if c not in known_ids)
+
+    warnings: list[str] = []
+    if unrecognized:
+        warnings.append(
+            "Some transcript courses do not exist in the active catalog and were "
+            "excluded from planning."
+        )
+    if not recognized:
+        warnings.append(
+            "No extracted courses matched the active catalog. Student imported "
+            "with zero completed courses for planning."
+        )
+
+    sanitized = student.model_copy(update={"completed_courses": recognized})
+    return sanitized, extracted, recognized, unrecognized, warnings
+
+
+def _load_runtime_catalog() -> tuple[Catalog, str]:
+    catalog, source = load_catalog(
+        offline=settings.offline,
+        supabase_url=settings.supabase_url,
+        supabase_service_key=settings.supabase_service_key,
+        fixture_path=settings.fixture_path,
+    )
+    return catalog, source
+
 
 # Load catalog once at startup for /health stats.
-_CATALOG, _CATALOG_SOURCE = load_catalog(offline=True)
+_CATALOG, _CATALOG_SOURCE = _load_runtime_catalog()
+if settings.real_student_file:
+    _inject_real_student_from_file(settings.real_student_file)
+    _CATALOG_SOURCE = f"{_CATALOG_SOURCE}+real-student"
 _GRAPH = build_graph(_CATALOG)
 
 app = FastAPI(
@@ -28,8 +266,6 @@ app = FastAPI(
     ),
     version="0.1.0",
 )
-
-settings: Settings = get_settings()
 
 app.add_middleware(
     CORSMiddleware,
@@ -163,6 +399,42 @@ class StudentSummary(BaseModel):
     remaining_courses: int
 
 
+class RealStudentImportRequest(BaseModel):
+    """Payload for importing a real student scenario at runtime."""
+
+    student_id: str
+    display_name: str
+    scenario: str = "Real student scenario"
+    program: str
+    completed_courses: list[str]
+    current_term: str
+    target_graduation_term: str
+    max_term_credits: int = 16
+    min_term_credits: int = 12
+
+
+class RealStudentImportResponse(BaseModel):
+    student_id: str
+    display_name: str
+    synthetic: bool
+    total_students: int
+
+
+class TranscriptImportResponse(BaseModel):
+    student_id: str
+    display_name: str
+    synthetic: bool
+    imported_courses: int
+    remaining_courses: int
+    extracted_course_ids: list[str]
+    recognized_course_ids: list[str]
+    unrecognized_course_ids: list[str]
+    completed_course_ids: list[str]
+    remaining_course_ids: list[str]
+    warnings: list[str]
+    total_students: int
+
+
 class ScheduledCourse(BaseModel):
     """A course placed in a specific term."""
 
@@ -201,7 +473,7 @@ class PlanResponse(BaseModel):
 
 @app.get("/students", response_model=list[StudentSummary], tags=["plan"])
 def list_students() -> list[StudentSummary]:
-    """List all synthetic student personas available for planning."""
+    """List all student scenarios available for planning."""
     courses = _CATALOG.course_map()
     result = []
     for s in _CATALOG.student_states:
@@ -225,6 +497,127 @@ def list_students() -> list[StudentSummary]:
             )
         )
     return result
+
+
+@app.post(
+    "/students/import",
+    response_model=RealStudentImportResponse,
+    tags=["plan"],
+)
+def import_real_student(request: RealStudentImportRequest) -> RealStudentImportResponse:
+    """Import or replace a real student scenario for planning.
+
+    This endpoint mutates only in-memory API state for the running process.
+    It does not write to disk or Supabase.
+    """
+    student = StudentState(
+        student_id=request.student_id,
+        display_name=request.display_name,
+        synthetic=False,
+        scenario=request.scenario,
+        program=request.program,
+        completed_courses=request.completed_courses,
+        current_term=request.current_term,
+        target_graduation_term=request.target_graduation_term,
+        max_term_credits=request.max_term_credits,
+        min_term_credits=request.min_term_credits,
+    )
+
+    try:
+        _validate_student_against_catalog(student)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+
+    _upsert_student(student)
+    return RealStudentImportResponse(
+        student_id=student.student_id,
+        display_name=student.display_name,
+        synthetic=student.synthetic,
+        total_students=len(_CATALOG.student_states),
+    )
+
+
+@app.post(
+    "/students/import-transcript",
+    response_model=TranscriptImportResponse,
+    tags=["plan"],
+)
+async def import_transcript(
+    file: UploadFile = File(...),
+    student_id: str = Form("real-student"),
+    display_name: str = Form("Real Student"),
+    program: str = Form(""),
+    current_term: str = Form("2026FA"),
+    target_graduation_term: str = Form("2029SP"),
+    max_term_credits: int = Form(16),
+    min_term_credits: int = Form(12),
+) -> TranscriptImportResponse:
+    """Import a student from transcript upload (JSON, CSV, TXT, or PDF).
+
+    Accepted formats:
+    - JSON with full StudentState shape or with completed_courses/courses
+    - CSV with columns such as course_id/completed_course/course/class
+    - Plain text containing course IDs like "CS 161" and optional metadata lines
+      (e.g., "Name: ...", "Student ID: ...", "Program: ...")
+    - PDF transcript (text-based; scanned PDFs require OCR before upload)
+    """
+    name = (file.filename or "").lower()
+    raw = await file.read()
+    if not raw:
+        raise HTTPException(status_code=422, detail="Uploaded transcript is empty")
+
+    try:
+        if name.endswith(".json"):
+            content = raw.decode("utf-8", errors="ignore")
+            student = _parse_student_from_json(content)
+        elif name.endswith(".pdf"):
+            content = _extract_text_from_pdf(raw)
+            student = _parse_student_from_csv_or_text(
+                content,
+                student_id=student_id,
+                display_name=display_name,
+                program=program,
+                current_term=current_term,
+                target_graduation_term=target_graduation_term,
+                max_term_credits=max_term_credits,
+                min_term_credits=min_term_credits,
+            )
+        else:
+            content = raw.decode("utf-8", errors="ignore")
+            student = _parse_student_from_csv_or_text(
+                content,
+                student_id=student_id,
+                display_name=display_name,
+                program=program,
+                current_term=current_term,
+                target_graduation_term=target_graduation_term,
+                max_term_credits=max_term_credits,
+                min_term_credits=min_term_credits,
+            )
+
+        sanitized, extracted, recognized, unrecognized, warnings = _scrub_courses_for_catalog(
+            student
+        )
+        _validate_student_against_catalog(sanitized)
+    except (ValueError, json.JSONDecodeError) as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+
+    _upsert_student(sanitized)
+    completed_count, remaining_count, remaining_ids = _student_progress(sanitized)
+    return TranscriptImportResponse(
+        student_id=sanitized.student_id,
+        display_name=sanitized.display_name,
+        synthetic=sanitized.synthetic,
+        imported_courses=completed_count,
+        remaining_courses=remaining_count,
+        extracted_course_ids=extracted,
+        recognized_course_ids=recognized,
+        unrecognized_course_ids=unrecognized,
+        completed_course_ids=sorted(set(sanitized.completed_courses)),
+        remaining_course_ids=remaining_ids,
+        warnings=warnings,
+        total_students=len(_CATALOG.student_states),
+    )
 
 
 @app.get("/plan/{student_id}", response_model=PlanResponse, tags=["plan"])

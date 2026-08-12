@@ -13,6 +13,7 @@ import StudentSelector from "./StudentSelector";
 import SemesterGrid from "./SemesterGrid";
 import RippleScoreDisplay from "./RippleScoreDisplay";
 import DisruptionSimulator from "./DisruptionSimulator";
+import TranscriptUploader from "./TranscriptUploader";
 
 type LoadingState = "idle" | "loading-students" | "loading-plan" | "loading-score" | "error";
 type ActiveTab = "plan" | "simulator" | "score";
@@ -26,20 +27,21 @@ export default function PlanPage() {
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<ActiveTab>("plan");
 
+  async function loadStudents() {
+    setLoadingState("loading-students");
+    setError(null);
+    const result = await fetchStudents();
+    if (result.ok) {
+      setStudents(result.data);
+      setLoadingState("idle");
+    } else {
+      setError(result.error);
+      setLoadingState("error");
+    }
+  }
+
   // Load students on mount.
   useEffect(() => {
-    async function loadStudents() {
-      setLoadingState("loading-students");
-      setError(null);
-      const result = await fetchStudents();
-      if (result.ok) {
-        setStudents(result.data);
-        setLoadingState("idle");
-      } else {
-        setError(result.error);
-        setLoadingState("error");
-      }
-    }
     loadStudents();
   }, []);
 
@@ -78,6 +80,10 @@ export default function PlanPage() {
     }
   }
 
+  async function handleImportedStudent(studentId: string) {
+    await handleSelectStudent(studentId);
+  }
+
   const selectedStudent = students.find(
     (s) => s.student_id === selectedStudentId
   );
@@ -106,6 +112,11 @@ export default function PlanPage() {
       )}
 
       {/* Student selector */}
+      <TranscriptUploader
+        onRefreshStudents={loadStudents}
+        onImported={handleImportedStudent}
+      />
+
       <section className="mb-8">
         <h2 className="mb-4 text-lg font-semibold text-neutral-800">
           Choose a Student
@@ -237,7 +248,7 @@ export default function PlanPage() {
       {/* Footer */}
       <footer className="mt-12 border-t border-neutral-200 pt-6">
         <p className="text-xs text-neutral-400">
-          Demo data is synthetic. Ripple never ingests real student records.
+          Demo personas are synthetic by default, but you can upload a real transcript for private analysis.
           The CP-SAT solver is the sole source of truth for plan feasibility.
         </p>
       </footer>

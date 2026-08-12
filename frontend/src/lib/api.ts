@@ -121,6 +121,25 @@ export type PlanResult =
   | { ok: true; data: PlanResponse }
   | { ok: false; error: string };
 
+export interface TranscriptImportResponse {
+  student_id: string;
+  display_name: string;
+  synthetic: boolean;
+  imported_courses: number;
+  remaining_courses: number;
+  extracted_course_ids: string[];
+  recognized_course_ids: string[];
+  unrecognized_course_ids: string[];
+  completed_course_ids: string[];
+  remaining_course_ids: string[];
+  warnings: string[];
+  total_students: number;
+}
+
+export type TranscriptImportResult =
+  | { ok: true; data: TranscriptImportResponse }
+  | { ok: false; error: string };
+
 /**
  * Fetch list of available students for planning.
  */
@@ -182,6 +201,63 @@ export async function fetchPlan(
     const message =
       error instanceof Error && error.name === "AbortError"
         ? `Solver timed out after ${timeoutMs}ms`
+        : error instanceof Error
+          ? error.message
+          : "Unknown error";
+    return { ok: false, error: message };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+export async function importTranscript(
+  file: File,
+  options: {
+    studentId?: string;
+    displayName?: string;
+    program?: string;
+    currentTerm?: string;
+    targetGraduationTerm?: string;
+    maxTermCredits?: number;
+    minTermCredits?: number;
+  } = {},
+  timeoutMs = 30000
+): Promise<TranscriptImportResult> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const form = new FormData();
+    form.append("file", file);
+    form.append("student_id", options.studentId ?? "real-student");
+    form.append("display_name", options.displayName ?? "Real Student");
+    form.append("program", options.program ?? "");
+    form.append("current_term", options.currentTerm ?? "2026FA");
+    form.append("target_graduation_term", options.targetGraduationTerm ?? "2029SP");
+    form.append("max_term_credits", String(options.maxTermCredits ?? 16));
+    form.append("min_term_credits", String(options.minTermCredits ?? 12));
+
+    const response = await fetch(`${RIPPLE_API_BASE_URL}/students/import-transcript`, {
+      method: "POST",
+      signal: controller.signal,
+      cache: "no-store",
+      body: form,
+    });
+
+    if (!response.ok) {
+      const maybe = await response.json().catch(() => null);
+      const detail = maybe?.detail ? `: ${String(maybe.detail)}` : "";
+      return { ok: false, error: `Backend returned HTTP ${response.status}${detail}` };
+    }
+
+    return {
+      ok: true,
+      data: (await response.json()) as TranscriptImportResponse,
+    };
+  } catch (error) {
+    const message =
+      error instanceof Error && error.name === "AbortError"
+        ? `Transcript upload timed out after ${timeoutMs}ms`
         : error instanceof Error
           ? error.message
           : "Unknown error";

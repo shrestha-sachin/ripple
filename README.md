@@ -61,6 +61,48 @@ cp .env.example .env
 .venv/bin/uvicorn app.main:app --reload --port 8000
 ```
 
+### Use UWGB data + real student scenario
+
+Ripple now supports swapping the seeded catalog and importing a non-synthetic
+student profile at runtime.
+
+1. Prepare a catalog fixture JSON in Ripple's `Catalog` shape (for UWGB).
+2. Set `RIPPLE_OFFLINE=true`.
+3. Set `RIPPLE_FIXTURE_PATH` to your UWGB fixture file path.
+4. Optional: set `RIPPLE_REAL_STUDENT_FILE` to a student JSON file (template in
+   `backend/seed/real_student.example.json`).
+5. Start the backend and verify `/students` and `/plan/{student_id}`.
+
+You can also import or replace a real student while the API is running:
+
+```bash
+curl -X POST http://127.0.0.1:8000/students/import \
+  -H 'Content-Type: application/json' \
+  -d @backend/seed/real_student.example.json
+```
+
+Or upload a transcript file directly (JSON, CSV, TXT, or PDF):
+
+```bash
+curl -X POST http://127.0.0.1:8000/students/import-transcript \
+  -F "file=@/path/to/transcript.pdf" \
+  -F "student_id=student-001" \
+  -F "display_name=Student Name" \
+  -F "program=OSU-CS-BS" \
+  -F "current_term=2026FA" \
+  -F "target_graduation_term=2029SP"
+```
+
+The response includes scrubbed transcript analysis fields:
+- `student_id`
+- `imported_courses` (courses taken and recognized in the active catalog)
+- `remaining_courses`
+- `completed_course_ids`
+- `remaining_course_ids`
+
+Note: PDF parsing works for text-based PDFs. Scanned/image PDFs require OCR
+before upload.
+
 Confirm the solver actually works on your machine:
 
 ```bash
@@ -108,7 +150,8 @@ docker run --rm -p 8000:8000 ripple-api
 
 ## Privacy
 
-Ripple uses **no real student data**. All student profiles are synthetic and fictional.
+Ripple ships with synthetic student personas by default for demos. It can also ingest
+real student transcripts in local/private deployments when explicitly uploaded by a user.
 Course catalog data comes from publicly published sources, documented with URLs and
 access dates in [ATTRIBUTION.md](ATTRIBUTION.md).
 

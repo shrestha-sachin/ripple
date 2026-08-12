@@ -1,0 +1,16 @@
+{
+  "student_id": "student-001",
+  "display_name": "Real Student",
+  "scenario": "Actual student record imported for advising.",
+  "program": "OSU-CS-BS",
+  "completed_courses": [
+    "MTH 111Z",
+    "MTH 112Z",
+    "CS 161",
+    "CS 162"
+  ],
+  "current_term": "2026FA",
+  "target_graduation_term": "2029SP",
+  "max_term_credits": 16,
+  "min_term_credits": 12
+}

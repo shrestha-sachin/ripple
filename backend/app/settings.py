@@ -23,6 +23,14 @@ class Settings(BaseSettings):
     # instead of Supabase, so a network blip can never break a live demo.
     offline: bool = False
 
+    # Optional absolute or relative path to a fixture JSON file.
+    # Useful for switching from the default seeded OSU fixture to a UWGB fixture.
+    fixture_path: str = ""
+
+    # Optional path to a JSON payload representing a real student scenario.
+    # If present, the student is injected at startup as non-synthetic.
+    real_student_file: str = ""
+
     # Comma-separated list of allowed browser origins.
     cors_origins: str = "http://localhost:3000"
 

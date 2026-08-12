@@ -15,7 +15,7 @@ class TestStudentsEndpoint:
         assert response.status_code == 200
         students = response.json()
         assert isinstance(students, list)
-        assert len(students) == 3  # 3 personas in catalog
+        assert len(students) >= 3  # seeded personas, plus any imported real students
 
     def test_students_have_required_fields(self):
         response = client.get("/students")
